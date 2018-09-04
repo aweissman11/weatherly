@@ -10,7 +10,7 @@
 /build
 
 # keys
-sampleData.js
+src/sampleData.js
 
 # misc
 .DS_Store
