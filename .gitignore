@@ -9,6 +9,9 @@
 # production
 /build
 
+# keys
+sampleData.js
+
 # misc
 .DS_Store
 .env.local
