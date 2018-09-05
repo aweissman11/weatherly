@@ -1,11 +1,13 @@
 //API Key: f9460b57fa291959
 
 import React, { Component } from 'react';
+
 import './App.css';
 import CurrentWeather from './CurrentWeather';
 import SevenHour from './SevenHour';
 import TenDay from './TenDay';
 import data from './sampleData';
+import WelcomeCard from './WelcomeCard';
 
 
 class App extends Component {
@@ -24,6 +26,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <WelcomeCard />
         <CurrentWeather 
           localStats={this.state.localStats}
           localForecast={this.state.localForecast}

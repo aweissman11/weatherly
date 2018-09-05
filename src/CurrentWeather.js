@@ -1,6 +1,7 @@
 /* current weather */
 
 import React, { Component } from 'react';
+
 import data from './sampleData';
 
 class CurrentWeather extends Component {
