@@ -13,10 +13,9 @@ class App extends Component {
 
     this.state = {
       localStats: data.current_observation,
-      localForecast: data.forecast   
+      localForecast: data.forecast
     }
   }
-
 
   render() {
     const propsData = {data};

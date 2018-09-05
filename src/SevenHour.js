@@ -12,6 +12,8 @@ class SevenHour extends Component {
     return (
       <div className='seven-hour'>
         <h1 className='seven-hour-header'>SEVEN HOUR FORECAST</h1>
+        <h1>SEVEN HOUR FORECAST</h1>
+
         {
           this.props.propsData.data.hourly_forecast.map( (hour, index) => {
               return <Hour 
