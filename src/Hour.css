@@ -1,0 +1,8 @@
+.hour, 
+.current-temp, 
+.condition, 
+.humidity, 
+.windchill, 
+.feelslike {
+  font-size: .8em;
+}
