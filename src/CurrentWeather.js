@@ -5,9 +5,9 @@ import React, { Component } from 'react';
 import data from './sampleData';
 
 class CurrentWeather extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   render() {
     return (
