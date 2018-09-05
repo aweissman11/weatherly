@@ -16,12 +16,12 @@ class CurrentWeather extends Component {
   render() {
     return (
       <div className='current-weather'>
-        <p>{currentCity}</p>
-        <p>{condition}</p>
-        <p>{currentDay}</p>
-        <p>Current Temperature: {currentTemp}</p>
-        <p>High: {highTemp}, Low: {lowTemp}</p>
-        <p>{weatherDescription}</p>
+        <p>{this.props.currentCity}</p>
+        <p>{this.props.condition}</p>
+        <p>{this.props.currentDay}</p>
+        <p>Current Temperature: {this.props.currentTemp}</p>
+        <p>High: {this.props.highTemp}, Low: {this.props.lowTemp}</p>
+        <p>{this.props.weatherDescription}</p>
       </div>
     )
   }

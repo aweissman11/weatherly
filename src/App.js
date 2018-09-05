@@ -19,7 +19,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <CurrentWeather/>
+        <CurrentWeather propsData={propsData}/>
         <SevenHour  propsData={propsData}/>
       </div>
     );
