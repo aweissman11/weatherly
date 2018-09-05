@@ -14,19 +14,17 @@ class SevenHour extends Component {
         <h1 className='seven-hour-header'>SEVEN HOUR FORECAST</h1>
         {
           this.props.propsData.data.hourly_forecast.map( (hour, index) => {
-            if (index < 7) {
               return <Hour 
                 hour={hour.FCTTIME.hour}
                 currentTemp={hour.temp.english}
-                // image={hour.icon_url}
+                image={hour.icon_url}
                 condition={hour.condition}
                 humidity={hour.humidity}
                 windchill={hour.windchill.english}
                 feelslike={hour.feelslike.english}
                 key={index}
                />
-            }
-          })
+          }).slice(0, 7)
         }
       </div>
     )

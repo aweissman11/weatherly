@@ -8,9 +8,14 @@ import data from './sampleData';
 
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor() {
+    super();
+
+    this.state = {
+      localStats: data.current_observation,
+      localForecast: data.forecast   
+    }
+  }
 
 
   render() {
@@ -18,7 +23,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <CurrentWeather/>
+        <CurrentWeather 
+          localStats={this.state.localStats}
+          localForecast={this.state.localForecast}
+        />
         <SevenHour  propsData={propsData}/>
       </div>
     );

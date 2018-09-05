@@ -13,7 +13,7 @@ class Hour extends Component {
       <div className='hour-div'>
         <p className='hour'>Hour: <span>{this.props.hour}</span></p>
         <p className='current-temp'>Current Temp: <span>{this.props.currentTemp}</span></p>
-        {/*<p>image: <span>{this.props.image}</span></p>*/}
+        <p><img src={this.props.image}></img></p>
         <p className='condition'>Condition: <span>{this.props.condition}</span></p>
         <p className='humidity'>Humidity: <span>{this.props.humidity}</span></p>
         <p className='windchill'>Windchill: <span>{this.props.windchill}</span></p>
