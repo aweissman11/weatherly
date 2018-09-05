@@ -1,7 +1,8 @@
 * {
 
-  background-color: #c7fbe6;
+  background-color: #FFE6BE;
   font-family: 'Ubuntu', sans-serif;
+  font-color: #042F77;
 }
 
 .App {
@@ -39,10 +40,10 @@
 
 /*Colors:
 
-Blue: #00c1bd
+Teal: #00c1bd
 Pale blue: #c7fbe6
 Yellow: #f5eb71
-Pale green: #a5d64e
-Green: #4f881b
+Blue: #042F77;
+Pale Yellow: #FFE6BE;
 
 */
