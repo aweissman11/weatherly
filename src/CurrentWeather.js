@@ -16,6 +16,7 @@ class CurrentWeather extends Component {
   render() {
     return (
       <div className='current-weather'>
+        <h1>CURRENT WEATHER</h1>
         <p>{currentCity}</p>
         <p>{condition}</p>
         <p>{currentDay}</p>

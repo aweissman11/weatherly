@@ -10,7 +10,7 @@ class SevenHour extends Component {
   render() {
     return (
       <div className='seven-hour'>
-        <h1
+        <h1>SEVEN HOUR FORECAST</h1>
         {
           this.props.propsData.data.hourly_forecast.map( (hour, index) => {
             if (index < 7) {
@@ -18,6 +18,11 @@ class SevenHour extends Component {
                 hour={hour.FCTTIME.hour}
                 currentTemp={hour.temp.english}
                 image={hour.icon_url}
+                condition={hour.condition}
+                humidity={hour.humidity}
+                windchill={hour.windchill.english}
+                feelslike={hour.feelslike.english}
+                key={index}
                />
             }
           })
