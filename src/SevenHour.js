@@ -11,6 +11,7 @@ class SevenHour extends Component {
     return (
       <div className='seven-hour'>
         <h1>SEVEN HOUR FORECAST</h1>
+
         {
           this.props.propsData.data.hourly_forecast.map( (hour, index) => {
             if (index < 7) {
