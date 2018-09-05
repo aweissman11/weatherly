@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import data from './sampleData';
 
+
 const currentCity = data.current_observation.display_location.full;
 const condition = data.current_observation.weather;
 const currentDay = data.current_observation.observation_time;
