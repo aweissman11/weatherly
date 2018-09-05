@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CurrentWeather from './CurrentWeather';
 import SevenHour from './SevenHour';
+import TenDay from './TenDay';
 import data from './sampleData';
 
 
@@ -13,7 +14,8 @@ class App extends Component {
 
     this.state = {
       localStats: data.current_observation,
-      localForecast: data.forecast
+      localForecast: data.forecast,
+      hourlyForecast: data.hourly_forecast
     }
   }
 
@@ -26,7 +28,10 @@ class App extends Component {
           localStats={this.state.localStats}
           localForecast={this.state.localForecast}
         />
-        <SevenHour  propsData={propsData}/>
+        <SevenHour  
+          hourlyForecast={this.state.hourlyForecast}
+        />
+        <TenDay />
       </div>
     );
   }
