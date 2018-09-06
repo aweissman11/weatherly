@@ -2,41 +2,73 @@
 
   background-color: #FFE6BE;
   font-family: 'Ubuntu', sans-serif;
-  font-color: #042F77;
+  /*font-color: #042F77;*/
+  /*box-sizing: border-box;*/
 }
 
 .App {
   text-align: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 20s slider infinite;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.card {
+  height: 500px;
+  width: 24%;
+  float: left;
+  border: solid .5px gray;
+  overflow: scroll;
 }
 
-.App-title {
-  font-size: 1.5em;
+.welcome,
+.current-weather,
+.ten-day-forecast,
+.seven-hour {
+  width: 100%;
+  float: left;
 }
 
-.App-intro {
-  font-size: large;
+.welcome {
+  background color: #00c1bd;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.current-weather {
+  background color: #c7fbe6;
 }
 
+.ten-day-forecast {
+  background color: #f5eb71;
+}
+
+.seven-hour {
+  background color: #042F77;
+}
+
+p {
+  font-size: .8em;
+  z-index: 120;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  z-index: 120;
+}
+
+/*.hour, 
+.current-temp, 
+.condition, 
+.humidity, 
+.windchill, 
+.feelslike {
+  font-size: .8em;
+}*/
 
 /*Colors:
 
