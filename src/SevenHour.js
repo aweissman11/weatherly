@@ -4,9 +4,9 @@ import Hour from './Hour';
 import './SevenHour.css';
 
 class SevenHour extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor() {
+    super();
+  }
 
   render() {
     return (
@@ -28,7 +28,7 @@ class SevenHour extends Component {
           }).slice(0, 7)
         }
       </div>
-    )
+    );
   }
 
 }

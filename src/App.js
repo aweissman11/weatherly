@@ -17,7 +17,8 @@ class App extends Component {
     this.state = {
       localStats: data.current_observation,
       localForecast: data.forecast,
-      hourlyForecast: data.hourly_forecast
+      hourlyForecast: data.hourly_forecast,
+      tenDay: data.forecast.simpleforecast
     }
   }
 
@@ -34,7 +35,7 @@ class App extends Component {
         <SevenHour  
           hourlyForecast={this.state.hourlyForecast}
         />
-        <TenDay />
+        <TenDay tenDay={this.state.tenDay}/>
       </div>
     );
   }
