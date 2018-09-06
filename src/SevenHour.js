@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import data from './sampleData';
 import Hour from './Hour';
-import './SevenHour.css';
 
 class SevenHour extends Component {
   constructor() {
