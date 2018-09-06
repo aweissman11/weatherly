@@ -1,42 +1,152 @@
 * {
 
-  background-color: #FFE6BE;
+  /*background-color: #FFE6BE;*/
   font-family: 'Ubuntu', sans-serif;
   font-color: #042F77;
+  box-sizing: border-box;
+  margin: 0;
 }
+
+body {
+    width: 90%;
+    align-self: center;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.welcome,
+.current-weather,
+.ten-day-forecast,
+.seven-hour,
+.twentyfour-hour {
+  width: 60%;
+  margin: auto;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.welcome {
+  background-color: #00c1bd;
+}
+
+.current-weather {
+  background-color: #c7fbe6;
+}
+
+.ten-day-forecast {
+  background-color: #f5eb71;
+}
+
+.seven-hour {
+  background-color: #042F77;
+}
+
+.twentyfour-hour {
+  background-color: #FFE6BE;
+}
+
+p {
+  font-size: .8em;
+  z-index: 120;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  z-index: 120;
+}
+
+
+
+
 
 .App {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  background: #e3e3e3;
+  margin: 5px 0;
+  border: 1px solid #D8D8D8;
+  box-shadow: 1px 1px 10px #D8D8D8;
+}
+
+.card {
+  float: left !important;
+  text-align: left;
+  background: #fff;
+  height: 100vh;
+  width: 100%;
+  /*max-width: 385px !important;*/
+  position: relative;
+  display: inline-block;
+  left: 0;
+  clear: both;
+/*   margin-left: 10px; */
+  margin-right: 55px;
+  float: none !important;
+  transition: transform .2s ease-in-out;
+  vertical-align: top;
+  padding: 20px 25px;
+}
+
+.card .title {
+  font-weight: 600;
+  font-size: 18px;
+  border-bottom: 1px solid #D8D8D8;
+}
+
+.card .desc {
+  font-size: 14px;
+  word-wrap: break-word;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+}
+
+.card img {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.slider-btn {
+  padding: 0;
+  font-size: 20px;
   text-align: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  color: #b3b3b3;
+  width: 45px;
+  height: 100%;
+  border: 0;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  position: absolute;
+  z-index: 999;
+  transition: all 0.6s ease 0s;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.slider-btn:hover {
+  color: #5f5f5f;
+  background: rgba(0,0,0,0.2);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.btn-r {
+  right: 0;
+}
+.btn-l {
+  left: 0px;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
+/*.hour, 
+.current-temp, 
+.condition, 
+.humidity, 
+.windchill, 
+.feelslike {
+  font-size: .8em;
+}*/
 
 /*Colors:
 

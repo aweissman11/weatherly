@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import Cards from './Cards';
 import CurrentWeather from './CurrentWeather';
 import SevenHour from './SevenHour';
 import TenDay from './TenDay';
@@ -19,27 +20,78 @@ class App extends Component {
       localStats: data.current_observation,
       localForecast: data.forecast,
       hourlyForecast: data.hourly_forecast,
-      tenDay: data.forecast.simpleforecast
+      tenDay: data.forecast.simpleforecast,
+
+      currentCard: 0,
+      position: 0,
+      cardStyle: {
+        transform: 'translateX(0px)'
+      },
+      width: 0,
+    };
+  }
+
+  componentDidMount() {
+    let boxWidth = document.getElementsByClassName("card").clientWidth;
+    this.setState({ width: boxWidth });
+  }
+  
+  // func: click the slider buttons
+  handleClick(type) {
+    // get the card's margin-right
+    // let margin = window.getComputedStyle(document.getElementsByClassName("card")).marginRight;
+    // margin = JSON.parse(margin.replace(/px/i, '')); 
+
+    // const cardWidth = this.state.width; // the card's width
+    // const cardMargin = margin; // the card's margin
+    const cardNumber = 5; // the number of cards
+    let currentCard = this.state.currentCard; // the index of the current card
+    let position = this.state.position; // the position of the cards
+
+    // slide cards
+    if(type === 'next' && currentCard < cardNumber-1) {
+      currentCard++;
+      position -= (105);
+    } else if(type === 'prev' && currentCard > 0) {
+      currentCard--;
+      position += (105);
     }
+    this.setCard(currentCard, position);
+  }
+  
+  setCard(currentCard, position) {
+    this.setState({
+      currentCard: currentCard,
+      position: position,
+      cardStyle: {
+        transform: `translateX(${position}%)`
+      }
+    })
   }
 
   render() {
     const propsData = {data};
 
+
     return (
-      <div className="App">
-        <WelcomeCard />
-        <CurrentWeather 
-          localStats={this.state.localStats}
-          localForecast={this.state.localForecast}
-        />
-        <SevenHour  
-          hourlyForecast={this.state.hourlyForecast}
-        />
-        <TenDay tenDay={this.state.tenDay}/>
-        <TwentyFourHour
-          hourlyForecast={this.state.hourlyForecast}
-        />
+      <div className='App'>
+        <figure>
+          <div className="slider-btns">
+            <button className="slider-btn btn-l" onClick={() => this.handleClick('prev')}>&lt;</button>
+            <button className="slider-btn btn-r" onClick={() => this.handleClick('next')}>&gt;</button>
+          </div>
+
+          <Cards 
+            cardStyle={this.state.cardStyle} 
+            localStats={this.state.localStats}
+            localForecast={this.state.localForecast}
+            tenDay={this.state.tenDay}
+            hourlyForecast={this.state.hourlyForecast}
+          />
+
+
+
+        </figure>
       </div>
     );
   }
