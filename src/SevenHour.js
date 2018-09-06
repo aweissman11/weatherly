@@ -4,9 +4,9 @@ import Hour from './Hour';
 import './SevenHour.css';
 
 class SevenHour extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor() {
+    super();
+  }
 
   render() {
     return (
@@ -15,20 +15,20 @@ class SevenHour extends Component {
 
         {
           this.props.hourlyForecast.map( (hour, index) => {
-              return <Hour 
-                hour={hour.FCTTIME.hour}
-                currentTemp={hour.temp.english}
-                image={hour.icon_url}
-                condition={hour.condition}
-                humidity={hour.humidity}
-                windchill={hour.windchill.english}
-                feelslike={hour.feelslike.english}
-                key={index}
-               />
+            return <Hour 
+              hour={hour.FCTTIME.hour}
+              currentTemp={hour.temp.english}
+              image={hour.icon_url}
+              condition={hour.condition}
+              humidity={hour.humidity}
+              windchill={hour.windchill.english}
+              feelslike={hour.feelslike.english}
+              key={index}
+             />
           }).slice(0, 7)
         }
       </div>
-    )
+    );
   }
 
 }

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
+
 import './Hour.css';
 
 class Hour extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor() {
+    super();
+  }
 
   render() {
-    // console.log(this.props)
-
     return (
       <div className='hour-div'>
         <p className='hour'>Hour: <span>{this.props.hour}</span></p>

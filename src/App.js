@@ -8,6 +8,7 @@ import SevenHour from './SevenHour';
 import TenDay from './TenDay';
 import data from './sampleData';
 import WelcomeCard from './WelcomeCard';
+import TwentyFourHour from './24Hour';
 
 
 class App extends Component {
@@ -17,7 +18,8 @@ class App extends Component {
     this.state = {
       localStats: data.current_observation,
       localForecast: data.forecast,
-      hourlyForecast: data.hourly_forecast
+      hourlyForecast: data.hourly_forecast,
+      tenDay: data.forecast.simpleforecast
     }
   }
 
@@ -34,7 +36,10 @@ class App extends Component {
         <SevenHour  
           hourlyForecast={this.state.hourlyForecast}
         />
-        <TenDay />
+        <TenDay tenDay={this.state.tenDay}/>
+        <TwentyFourHour
+          hourlyForecast={this.state.hourlyForecast}
+        />
       </div>
     );
   }
