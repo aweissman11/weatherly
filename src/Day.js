@@ -8,13 +8,11 @@ export default class Day extends Component {
 	render() {
 		return (
 			<div className='day-div'>
-				<p className='day'>{this.props.weekday}</p>
-				<p className='date'>{this.props.date}</p>
-				<p className='month'>{this.props.month}</p>
-				<p className='high'>{this.props.high}</p>
-				<p className='low'>{this.props.low}</p>
-				<p className='day-condition'>{this.props.condition}</p>
+				<p className='date'>Day: <span>{this.props.weekday}</span> <span>{this.props.month}/</span><span>{this.props.date}</span></p>
+				<p className='high'>High: <span>{this.props.high}</span></p>
+				<p className='low'>Low: <span>{this.props.low}</span></p>
 				<p><img className='day-img' src={this.props.image}/></p>
+				<p className='day-condition'>Condition: <span>{this.props.condition}</span></p>
 			</div>
 		);
 	}
