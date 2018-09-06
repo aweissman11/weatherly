@@ -14,40 +14,16 @@ body {
     margin: 20px auto;
 }
 
-figure {
-
-}
-
-/*.App {
-  text-align: center;
-}*/
-
-/*figure {
-  position: relative;
-  width: 500%;
-  height: 100vh;
-  margin: 0;
-  left: 0;
-  animation: 20s slider infinite;
-}*/
-
-/*.card {
-  width: 20%;
-  height: 100%;
-  float: left;
-  border: solid .5px gray;
-  overflow: hidden;
-}*/
-
-/*.welcome,
+.welcome,
 .current-weather,
 .ten-day-forecast,
 .seven-hour,
-.ten-day-forecast {
-  width: 100vw;
-  height: 100vh;
-  float: left;
-}*/
+.twentyfour-hour {
+  width: 60%;
+  margin: auto;
+  border-radius: 20px;
+  text-align: center;
+}
 
 .welcome {
   background-color: #00c1bd;
@@ -63,6 +39,10 @@ figure {
 
 .seven-hour {
   background-color: #042F77;
+}
+
+.twentyfour-hour {
+  background-color: #FFE6BE;
 }
 
 p {
