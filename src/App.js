@@ -51,10 +51,10 @@ class App extends Component {
     // slide cards
     if(type === 'next' && currentCard < cardNumber-1) {
       currentCard++;
-      position -= (105);
+      position -= (100);
     } else if(type === 'prev' && currentCard > 0) {
       currentCard--;
-      position += (105);
+      position += (100);
     }
     this.setCard(currentCard, position);
   }

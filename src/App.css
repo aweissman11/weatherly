@@ -79,36 +79,15 @@ h1 {
   background: #fff;
   height: 100vh;
   width: 100%;
-  /*max-width: 385px !important;*/
   position: relative;
   display: inline-block;
   left: 0;
   clear: both;
-/*   margin-left: 10px; */
-  margin-right: 55px;
+  /*margin-right: 55px;*/
   float: none !important;
   transition: transform .2s ease-in-out;
   vertical-align: top;
-  padding: 20px 25px;
-}
-
-.card .title {
-  font-weight: 600;
-  font-size: 18px;
-  border-bottom: 1px solid #D8D8D8;
-}
-
-.card .desc {
-  font-size: 14px;
-  word-wrap: break-word;
-  white-space: -moz-pre-wrap;
-  white-space: pre-wrap;
-}
-
-.card img {
-  display: block;
-  position: relative;
-  width: 100%;
+  padding: 20px 0px;
 }
 
 .slider-btn {
