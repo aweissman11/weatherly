@@ -2,14 +2,11 @@
 
 import React, { Component } from 'react';
 
+import data from './sampleData';
+
 import './App.css';
 import Cards from './Cards';
-import CurrentWeather from './CurrentWeather';
-import SevenHour from './SevenHour';
-import TenDay from './TenDay';
-import data from './sampleData';
-import WelcomeCard from './WelcomeCard';
-import TwentyFourHour from './24Hour';
+import NavBtns from './NavBtns';
 
 
 class App extends Component {
@@ -36,14 +33,9 @@ class App extends Component {
     this.setState({ width: boxWidth });
   }
   
-  // func: click the slider buttons
+  // click the slider buttons
   handleClick(type) {
-    // get the card's margin-right
-    // let margin = window.getComputedStyle(document.getElementsByClassName("card")).marginRight;
-    // margin = JSON.parse(margin.replace(/px/i, '')); 
 
-    // const cardWidth = this.state.width; // the card's width
-    // const cardMargin = margin; // the card's margin
     const cardNumber = 5; // the number of cards
     let currentCard = this.state.currentCard; // the index of the current card
     let position = this.state.position; // the position of the cards
@@ -67,6 +59,8 @@ class App extends Component {
         transform: `translateX(${position}%)`
       }
     })
+      console.log('crnt card:', currentCard);
+      console.log('posit:', position);
   }
 
   render() {
@@ -88,9 +82,13 @@ class App extends Component {
             tenDay={this.state.tenDay}
             hourlyForecast={this.state.hourlyForecast}
           />
-
-
-
+          <div className='nav'>
+            <NavBtns 
+              setCard={this.setCard.bind(this)}
+              currentCard={this.state.currentCard}
+              position={this.state.position}
+            />
+          </div>
         </figure>
       </div>
     );
