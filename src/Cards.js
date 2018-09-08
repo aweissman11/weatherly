@@ -3,14 +3,13 @@ import React, { Component } from 'react';
 import CurrentWeather from './CurrentWeather';
 import SevenHour from './SevenHour';
 import TenDay from './TenDay';
-import data from './sampleData';
 import WelcomeCard from './WelcomeCard';
 import TwentyFourHour from './24Hour';
 
 
-export default class Cards extends React.Component {
+export default class Cards extends Component {
   render() {
-    const cardsArray = [<WelcomeCard />,
+    const cardsArray = [  <WelcomeCard />,
                           <CurrentWeather 
                             localStats={this.props.localStats}
                             localForecast={this.props.localForecast}
