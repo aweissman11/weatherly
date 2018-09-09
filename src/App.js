@@ -1,5 +1,3 @@
-//API Key: f9460b57fa291959
-
 import React, { Component } from 'react';
 
 import data from './sampleData';
@@ -7,6 +5,7 @@ import data from './sampleData';
 import './App.css';
 import Cards from './Cards';
 import NavBtns from './NavBtns';
+import apiKey from './Key';
 
 
 class App extends Component {
@@ -18,6 +17,8 @@ class App extends Component {
       localForecast: data.forecast,
       hourlyForecast: data.hourly_forecast,
       tenDay: data.forecast.simpleforecast,
+
+      weatherApiData: [],
 
       currentCard: 0,
       position: 0,
@@ -31,6 +32,23 @@ class App extends Component {
   componentDidMount() {
     let boxWidth = document.getElementsByClassName("card").clientWidth;
     this.setState({ width: boxWidth });
+
+
+
+    fetch(`http://api.wunderground.com/api/${apiKey.apiKey}/forecast10day/q/CA/San_Francisco.json`)
+      .then( response => response.json())
+      .then( weatherData => {
+        this.setState({
+          weatherApiData: weatherData.forecast
+        })
+      })
+      .catch( error => {
+        throw new Error(error);
+      })
+
+    console.log('mount');
+    console.log(this.state.weatherApiData)
+
   }
   
   // click the slider buttons

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import './Hour.css';
 
 class Hour extends Component {
   constructor() {

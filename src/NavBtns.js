@@ -33,13 +33,13 @@ export default class NavBtns extends Component {
     return (
       // Map out the buttons here
       // Bold out whichiver one is current
-      <ul className='nav-btns'>
+      <ul className='nav-btns' key={Date.now()}>
         {
           btnTitleArray.map( (btn, i) => {
             if (i === currentCard) {
               return (
                 <li 
-                  key='i' 
+                  key={i} 
                   className='nav-btn'
                   onClick={ () => this.switchCard(i, (i * -100)) }  
                 >
