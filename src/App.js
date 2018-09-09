@@ -34,26 +34,36 @@ class App extends Component {
 
   componentDidMount() {
 
-// UnComment the following function to access the API
-// Will need to edit it to interpolate the location as well
-    // let fetchCall = (`http://api.wunderground.com/api/${apiKey.apiKey}/conditions/forecast10day/hourly10day/q/CA/San_Francisco.json`)
-
-    // fetch(fetchCall)
-    //   .then(data => data.json())
-    //   .then(data => {
-    //     this.setState({
-    //       weatherApiData: data.forecast,
-    //       localStats: data.current_observation,
-    //       localForecast: data.forecast,
-    //       hourlyForecast: data.hourly_forecast,
-    //       tenDay: data.forecast.simpleforecast,
-    //     })
-    //   })
+    this.fetchCityWeatherData('02139');
     
     let boxWidth = document.getElementsByClassName("card").clientWidth;
     this.setState({ width: boxWidth });
   }
-  
+
+  fetchCityWeatherData(location) {
+   // UnComment the following function to access the API
+   // Will need to edit it to interpolate the location as well
+
+   let jsonLocation = location;
+
+   let fetchCall = (`http://api.wunderground.com/api/${apiKey.apiKey}/conditions/forecast10day/hourly10day/q/${jsonLocation}.json`)
+
+   fetch(fetchCall)
+    .then(data => data.json())
+    .then(data => {
+      this.setState({
+        weatherApiData: data.forecast,
+        localStats: data.current_observation,
+        localForecast: data.forecast,
+        hourlyForecast: data.hourly_forecast,
+        tenDay: data.forecast.simpleforecast,
+      })
+      })
+    .catch( error => {
+      console.log(error)
+    })
+  }
+
   // click the slider buttons
   handleClick(type) {
 
