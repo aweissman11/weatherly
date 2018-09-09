@@ -23,7 +23,7 @@ class Hour extends Component {
       <div className='hour-div' onClick={this.toggleInfo}>
         <p className='hour'>Hour: <span>{this.props.hour}</span></p>
         <p className='current-temp'>Current Temp: <span>{this.props.currentTemp}</span></p>
-        <p><img src={this.props.image}></img></p>
+        <p><img alt='weather-condition' src={this.props.image}></img></p>
         {
           this.state.showInfo &&
             <div className='xtra-info'>

@@ -18,7 +18,10 @@ class App extends Component {
       hourlyForecast: data.hourly_forecast,
       tenDay: data.forecast.simpleforecast,
 
-      weatherApiData: [],
+      // weatherApiData: {},
+      // localForecast: {},
+      // hourlyForecast: {},
+      // tenDay: {},
 
       currentCard: 0,
       position: 0,
@@ -30,25 +33,25 @@ class App extends Component {
   }
 
   componentDidMount() {
+
+// UnComment the following function to access the API
+// Will need to edit it to interpolate the location as well
+    // let fetchCall = (`http://api.wunderground.com/api/${apiKey.apiKey}/conditions/forecast10day/hourly10day/q/CA/San_Francisco.json`)
+
+    // fetch(fetchCall)
+    //   .then(data => data.json())
+    //   .then(data => {
+    //     this.setState({
+    //       weatherApiData: data.forecast,
+    //       localStats: data.current_observation,
+    //       localForecast: data.forecast,
+    //       hourlyForecast: data.hourly_forecast,
+    //       tenDay: data.forecast.simpleforecast,
+    //     })
+    //   })
+    
     let boxWidth = document.getElementsByClassName("card").clientWidth;
     this.setState({ width: boxWidth });
-
-
-
-    fetch(`http://api.wunderground.com/api/${apiKey.apiKey}/forecast10day/q/CA/San_Francisco.json`)
-      .then( response => response.json())
-      .then( weatherData => {
-        this.setState({
-          weatherApiData: weatherData.forecast
-        })
-      })
-      .catch( error => {
-        throw new Error(error);
-      })
-
-    console.log('mount');
-    console.log(this.state.weatherApiData)
-
   }
   
   // click the slider buttons
@@ -77,13 +80,11 @@ class App extends Component {
         transform: `translateX(${position}%)`
       }
     })
-      console.log('crnt card:', currentCard);
-      console.log('posit:', position);
   }
 
   render() {
-    const propsData = {data};
 
+    console.log('render')
 
     return (
       <div className='App'>

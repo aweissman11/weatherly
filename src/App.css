@@ -41,12 +41,27 @@ body {
   text-align: center;
 }
 
-.ten-day-forecast,
-.seven-hour,
-.twentyfour-hour {
+.ten-days,
+.seven-hour {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 20px;
+}
+
+
+.twentyfour-hours {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+}
+
+.twentyfour-hour-header,
+.ten-day-header {
+  padding: 30px 0;
+}
+
+.hour-div {
+  height: 100%;
+  margin-bottom: 30px;
 }
 
 .welcome {
@@ -77,7 +92,8 @@ body {
   width: 20px;
 }
 
-.twentyfour-hour p {
+.twentyfour-hour p,
+.ten-day-forecast p {
   font-size: .5em;
 }
 

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 export default class WelcomeCard extends Component {
-	constructor() {
-		super();
+	// constructor() {
+	// 	super();
 
-	}
+	// }
 
 	render() {
 		return (

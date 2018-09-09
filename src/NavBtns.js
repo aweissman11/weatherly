@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 
 export default class NavBtns extends Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    // this.state = {
-    //   currentCard: this.props.currentCard,
-    //   position: this.props.position
-    // }
-  }
+  //   // this.state = {
+  //   //   currentCard: this.props.currentCard,
+  //   //   position: this.props.position
+  //   // }
+  // }
 
   // set up function here
 
@@ -20,7 +20,7 @@ export default class NavBtns extends Component {
   render() {
     // Deconstruct state obj here if needed
 
-    const { currentCard, position } = this.props
+    const { currentCard } = this.props
 
     const btnTitleArray = ['Search',
                            'Current Weather',
@@ -49,7 +49,7 @@ export default class NavBtns extends Component {
             } else {
               return (
                 <li 
-                  key='i' 
+                  key={i} 
                   className='current-nav-btn'
                   onClick={ () => this.switchCard(i, (i * -100)) }  
                 >

@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import Hour from './Hour';
 
 class SevenHour extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   render() {
     return (

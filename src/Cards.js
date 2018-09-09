@@ -30,7 +30,7 @@ export default class Cards extends Component {
           return (
             <div className="card" id="card" style={this.props.cardStyle} key={i}>
                 {card}
-              <a href="#"><img src={card.url} /></a>
+              <a ><img alt='' src={card.url} /></a>
             </div>
           )
         })
