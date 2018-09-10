@@ -40,7 +40,7 @@ export default class NavBtns extends Component {
               return (
                 <li 
                   key={i} 
-                  className='nav-btn'
+                  className='current-nav-btn'
                   onClick={ () => this.switchCard(i, (i * -100)) }  
                 >
                     {btn}
@@ -50,7 +50,7 @@ export default class NavBtns extends Component {
               return (
                 <li 
                   key={i} 
-                  className='current-nav-btn'
+                  className='nav-btn'
                   onClick={ () => this.switchCard(i, (i * -100)) }  
                 >
                     {btn}
