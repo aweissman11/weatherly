@@ -1,8 +1,6 @@
 * {
-
-  /*background-color: #FFE6BE;*/
   font-family: 'Ubuntu', sans-serif;
-  font-color: #042F77;
+  color:  #69AF63;
   box-sizing: border-box;
   object-fit: contain;
   margin: 0;
@@ -12,7 +10,8 @@
 }
 
 body {
-  background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/mado5ne/clouds-fly-on-blue-sky-in-sunny-weather-time-lapse_7kveaeqqu__F0000.png);
+  background-image: url(https://thumbs.gfycat.com/CalmSimilarCob-size_restricted.gif) ;
+  background-size: cover;
   width: 90%;
   align-self: center;
   text-align: center;
@@ -28,7 +27,6 @@ figure,
   background-color: rgba(0, 0, 0, 0);
 }
 
-
 .nav-btns {
     display: flex;
     flex-direction: row;
@@ -36,11 +34,11 @@ figure,
 }
 
 .nav-btn {
-  color: blue;
+  color: #c7fbe6;
 }
 
 .current-nav-btn {
-  color: red;
+  color: #B02032;
   font-weight: bold;
 }
 
@@ -81,28 +79,12 @@ figure,
   margin-bottom: 15px;
 }
 
-.welcome {
-  background-color: rgba(0, 193, 189, .7);
-}
-
-.current-weather {
-  background-color: rgba(198, 250, 230, .7);
-  /*background-color: #c7fbe6;*/
-}
-
-.seven-hour {
-  background-color: rgba(4, 47, 119, .7);
-  /*background-color: #042F77;*/
-}
-
-.ten-day-forecast {
-  background-color: rgba(180, 193, 214, .7);
-  /*background-color: #f5eb71;*/
-}
-
+.welcome,
+.ten-day-forecast,
+.current-weather, 
+.seven-hour,
 .twentyfour-hour {
-  background-color: rgba(255, 229, 190, .7);
-  /*background-color: #FFE6BE;*/
+  background-color: rgba(227, 234, 228, .3);
 }
 
 .twentyfour-hour img {
