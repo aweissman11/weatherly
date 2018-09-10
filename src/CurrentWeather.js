@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 
-import data from './sampleData';
 
 class CurrentWeather extends Component {
   // constructor() {
@@ -20,8 +19,6 @@ class CurrentWeather extends Component {
         <p>Current Temperature: {this.props.localStats.temp_f}</p>
         <p>High: {this.props.localForecast.simpleforecast.forecastday[0].high.fahrenheit}, 
           Low: {this.props.localForecast.simpleforecast.forecastday[0].low.fahrenheit}</p>
-        <p>{this.props.localForecast.txt_forecast.forecastday[0].fcttext}</p>
-        <p>High: {this.props.localForecast.simpleforecast.forecastday[0].high.fahrenheit}, Low: {this.props.localForecast.simpleforecast.forecastday[0].low.fahrenheit}</p>
         <p>{this.props.localForecast.txt_forecast.forecastday[0].fcttext}</p>
 
       </div>
