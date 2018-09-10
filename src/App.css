@@ -4,15 +4,30 @@
   font-family: 'Ubuntu', sans-serif;
   font-color: #042F77;
   box-sizing: border-box;
+  object-fit: contain;
   margin: 0;
 }
 
-body {
-    width: 90%;
-    align-self: center;
-    text-align: center;
-    margin: 20px auto;
+#root {
 }
+
+body {
+  background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/mado5ne/clouds-fly-on-blue-sky-in-sunny-weather-time-lapse_7kveaeqqu__F0000.png);
+  width: 90%;
+  align-self: center;
+  text-align: center;
+  margin: 20px auto;
+  border-radius: 20px;
+}
+
+figure,
+.card-holder,
+.card,
+.App {
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 
 .nav-btns {
     display: flex;
@@ -34,8 +49,9 @@ body {
 .ten-day-forecast,
 .seven-hour,
 .twentyfour-hour {
+  white-space: normal;
   height: 100%;
-  width: 60%;
+  width: 84%;
   margin: auto;
   border-radius: 20px;
   text-align: center;
@@ -51,7 +67,7 @@ body {
 
 .twentyfour-hours {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 
 .twentyfour-hour-header,
@@ -66,7 +82,7 @@ body {
 }
 
 .welcome {
-  background-color: rgba(0, 193, 189, .3);
+  background-color: rgba(0, 193, 189, .7);
 }
 
 .current-weather {
@@ -75,12 +91,12 @@ body {
 }
 
 .seven-hour {
-  background-color: rgba(4, 47, 119, .3);
+  background-color: rgba(4, 47, 119, .7);
   /*background-color: #042F77;*/
 }
 
 .ten-day-forecast {
-  background-color: rgba(180, 193, 214, .4);
+  background-color: rgba(180, 193, 214, .7);
   /*background-color: #f5eb71;*/
 }
 
@@ -105,7 +121,7 @@ body {
   height: 100%;
   position: relative;
   display: inline-block;
-  background: #e3e3e3;
+  /*background: #e3e3e3;*/
   margin: 5px 0;
   border: 1px solid #D8D8D8;
   box-shadow: 1px 1px 10px #D8D8D8;
@@ -130,8 +146,9 @@ body {
   font-size: 20px;
   text-align: center;
   color: #b3b3b3;
-  width: 45px;
-  height: 100%;
+  width: 10%;
+  margin-top: 20px;
+  height: 84vh;
   border: 0;
   cursor: pointer;
   background: none;

@@ -11,6 +11,7 @@
 
 # keys
 src/sampleData.js
+src/Key.js
 
 # misc
 .DS_Store
