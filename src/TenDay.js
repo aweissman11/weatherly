@@ -26,7 +26,7 @@ export default class TenDay extends Component {
 							low={day.low.fahrenheit}
 							condition={day.conditions}
 							image={day.icon_url}
-							key={index}
+							// key={index}
 							/>
 					})
 				}        
