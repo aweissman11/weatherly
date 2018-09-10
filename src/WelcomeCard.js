@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
+
 import data from './largest1000cities';
+// const { Trie } = require('@aweissman/trie-autosuggest/lib/trie.js');
+import Trie from '@aweissman/trie-autosuggest/lib/trie.js';
 
 export default class WelcomeCard extends Component {
 	constructor() {
@@ -13,11 +16,16 @@ export default class WelcomeCard extends Component {
 		}
 	}
 
-
+	suggestCities(event) {
+		const newTrie = new Trie();
+		newTrie.populate(data.data);
+		// console.log(e);
+		console.log(newTrie.displayWords());
+		// console.log(newTrie.suggest('bos'));
+	}
 
 	render() {
 		const firstTenCities = data.data.slice(0, 10)
-
 
 		return (
 			<div className='welcome'>
@@ -26,6 +34,7 @@ export default class WelcomeCard extends Component {
 					<input 
 						type='text' 
 						placeholder='Enter a city/state or zip code'
+						onKeyUp={ (event) => this.suggestCities(event.target.value)}
 					/>
 					<br />
 					<button>Show Me the Weather!</button>

@@ -34,11 +34,17 @@ class App extends Component {
 
   componentDidMount() {
 
-    this.fetchCityWeatherData('02139');
+    this.fetchCityWeatherData('autoip');
     
     let boxWidth = document.getElementsByClassName("card").clientWidth;
     this.setState({ width: boxWidth });
   }
+
+  // parseLocationEntry(entry) {
+  //   trim and split the entry
+  //   handle it if it's a city or if it's a zipcode
+  //   once ready, run fetchCityWeatherData()
+  // }
 
   fetchCityWeatherData(location) {
    // UnComment the following function to access the API
