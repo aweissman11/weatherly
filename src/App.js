@@ -1,5 +1,3 @@
-//API Key: f9460b57fa291959
-
 import React, { Component } from 'react';
 
 import data from './sampleData';
@@ -7,6 +5,7 @@ import data from './sampleData';
 import './App.css';
 import Cards from './Cards';
 import NavBtns from './NavBtns';
+import apiKey from './Key';
 
 
 class App extends Component {
@@ -19,6 +18,11 @@ class App extends Component {
       hourlyForecast: data.hourly_forecast,
       tenDay: data.forecast.simpleforecast,
 
+      // weatherApiData: {},
+      // localForecast: {},
+      // hourlyForecast: {},
+      // tenDay: {},
+
       currentCard: 0,
       position: 0,
       cardStyle: {
@@ -29,10 +33,37 @@ class App extends Component {
   }
 
   componentDidMount() {
+
+    this.fetchCityWeatherData('02139');
+    
     let boxWidth = document.getElementsByClassName("card").clientWidth;
     this.setState({ width: boxWidth });
   }
-  
+
+  fetchCityWeatherData(location) {
+   // UnComment the following function to access the API
+   // Will need to edit it to interpolate the location as well
+
+   let jsonLocation = location;
+
+   let fetchCall = (`http://api.wunderground.com/api/${apiKey.apiKey}/conditions/forecast10day/hourly10day/q/${jsonLocation}.json`)
+
+   fetch(fetchCall)
+    .then(data => data.json())
+    .then(data => {
+      this.setState({
+        weatherApiData: data.forecast,
+        localStats: data.current_observation,
+        localForecast: data.forecast,
+        hourlyForecast: data.hourly_forecast,
+        tenDay: data.forecast.simpleforecast,
+      })
+      })
+    .catch( error => {
+      console.log(error)
+    })
+  }
+
   // click the slider buttons
   handleClick(type) {
 
@@ -59,14 +90,9 @@ class App extends Component {
         transform: `translateX(${position}%)`
       }
     })
-      console.log('crnt card:', currentCard);
-      console.log('posit:', position);
   }
 
   render() {
-    const propsData = {data};
-
-
     return (
       <div className='App'>
         <figure>
