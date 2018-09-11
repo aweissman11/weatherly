@@ -13,6 +13,7 @@ body {
   /*font-size: 2em;*/
   background-image: url(https://thumbs.gfycat.com/CalmSimilarCob-size_restricted.gif) ;
   background-size: cover;
+  /*filter: brightness(80%);*/
   width: 90%;
   align-self: center;
   text-align: center;
@@ -29,7 +30,12 @@ figure,
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 3.5em;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2.5em;
   font-weight: 400;
 }
 
@@ -40,7 +46,6 @@ h1 {
   height: 100%;
   position: relative;
   display: inline-block;
-  /*background: #e3e3e3;*/
   margin: 5px 0;
   border: 1px solid #D8D8D8;
   box-shadow: 1px 1px 10px #D8D8D8;
@@ -57,14 +62,11 @@ h1 {
 .card {
   float: left;
   float: none !important;
-  /*background: #fff;*/
   height: 90vh;
   width: 100%;
   position: relative;
   display: inline-block;
-  /*left: 0;*/
   transition: transform .4s;
-  /*vertical-align: top;*/
   padding: 20px 0px;
 }
 
@@ -80,7 +82,7 @@ h1 {
 .ten-day-forecast,
 .twentyfour-hour,
 .welcome {
-  background-color: rgba(227, 234, 228, .3);
+  /*background-color: rgba(227, 234, 228, .3);*/
   white-space: normal;
   height: 100%;
   width: 84%;
@@ -92,6 +94,11 @@ h1 {
 .hour-div {
   height: 100%;
   margin-bottom: 15px;
+}
+
+.input-div {
+  display: grid;
+  grid-template-columns: 2;
 }
 
 .nav-btn {
@@ -108,7 +115,7 @@ h1 {
 }
 
 .search-form {
-  font-size: 5em;
+  
 }
 
 .seven-hour,
@@ -140,6 +147,18 @@ h1 {
   background: rgba(0,0,0,0.3);
 }
 
+.submit-btn,
+.your-location-btn {
+  background-color: #3f693b;
+  border-radius: 5px;
+  border-style: none;
+  border-width: 0px;
+  color: #fff;
+  font-size: 17px;
+  height: 3em;
+  width: 40%;
+}
+
 .ten-day-header,
 .twentyfour-hour-header {
   font-size: 1.3em;
@@ -160,7 +179,34 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 
-.welcome {
-  margin: auto;
+.user-input {
+  background-color: #c7fbe6;
+  border-radius: 5px;
+  border-style: none;
+  border-width: 0px;
+  font-size: 14px;
+  height: 4em;
+  text-align: center;
+  width: 40%;
+}
+
+.welcome-msg {
+  padding: .8em 0 2.5em;
+}
+
+.welcome-recents {
+  background-color: #c7fbe6;
+  border-radius: 15px;
+  border-style: none;
+  border-width: 0px;
+  color: gray;
+  font-size: 14px;
+  height: 4em;
+  text-align: center;
+  width: 40%;
+}
+
+.welcome-title {
+  
 }
 
