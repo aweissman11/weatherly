@@ -10,7 +10,7 @@ export default class TwentyFourHour extends Component {
 	render() {
 		return (
 			<div className='twentyfour-hour'>
-				<h1 className='twentyfour-hour-header'>TWENTY-FOUR HOUR FORECAST</h1>
+				<h1 className='twentyfour-hour-header'>twenty-four hour forecast</h1>
         <section className='twentyfour-hours'>
   				{
   					this.props.hourlyForecast.map( (hour, index) => {
