@@ -4,63 +4,92 @@ import cityList from './largest1000cities';
 
 
 export default class WelcomeCard extends Component {
-    constructor() {
-        super();
+	constructor() {
+		super();
 
-        this.state = {
-            recentSearches: [],
-            value: ''
-        }
-    }
+		this.state = {
+			recentSearches: [],
+			value: ''
+		}
+		this.changeValue = this.changeValue.bind(this);
+		this.enterValue = this.enterValue.bind(this);
+	}
 
 
-    handleSubmit(event) {
-        event.preventDefault();
-    }
+	handleSubmit(event) {
+		event.preventDefault();
+	}
 
-    changeValue(event) {
-        console.log(event.target.value)
-        this.setState( { value: event.target.value } )
-        this.suggestCities(event.target.value)
-    }
+	changeValue(event) {
+		console.log(event.target.value)
+		event.preventDefault();
+		this.setState( { value: event.target.value } )
+		this.suggestCities(event.target.value)
+	}
 
-    suggestCities(event) {
-        console.log(this.props.newTrie.suggest(event))
-    }
+	enterValue(event) {
+		event.preventDefault()
+		this.setState( { value: event.target.value } )
+		this.props.parseUserEntry(this.state.value);
+	}
 
-    render() {
-        let entry = this.state.value;
-        const firstTenCities = cityList.cityList.slice(0, 10)
+	suggestCities(event) {
+		// console.log(this.props.newTrie.suggest(event))
 
-        return (
-            <div className='welcome'>
-                <h1>i know weather</h1>
-                <form className='search-form' onSubmit={ this.handleSubmit }>
-                    <input
-                      type='text'
-                      placeholder='enter a city/state or zip code'
-                      onKeyUp={ this.changeValue.bind(this)}
-                    />
-                    <br />
-                    <button onClick={ this.changeValue.bind(this), () => this.props.parseUserEntry(entry)}>show me.</button>
-                </form>
-                <button>your location</button>
-                <br />
-                <select>
-                    {
-                      firstTenCities.map( (city, i) => {     		
-                        return (
-                          <option 
-                            value={city} 
-                            key={i} >{city}
-                          </option>
-                        )
-                      })
-                    }
-                </select>
-            </div>
-        );
-    }
+		this.setState({recentSearches: this.props.newTrie.suggest(event)})
+		
+
+	}
+
+	render() {
+		// let entry = this.state.value
+		const firstTenCities = cityList.cityList.slice(0, 10)
+
+		// console.log(this.state.recentSearches);
+
+		return (
+			<div className='welcome'>
+				<h1>i know weather</h1>
+				<form className='search-form' onSubmit={ this.handleSubmit }>
+					<input 
+						list='searches'
+						type='text' 
+						placeholder='Enter a city/state or zip code'
+						onKeyUp={ this.changeValue }
+					/>
+					<datalist id='searches'>
+						{
+							this.state.recentSearches.map( (search, i) => {
+								return (
+									<option
+										onClick={ this.enterValue} 
+										key={i} 
+										value={search}
+										>
+											{search}
+									</option> 
+								)
+							}).slice(0, 10)		
+						}
+					</datalist>
+					<br />
+					<button onClick={ this.enterValue }>show me.</button>
+				</form>
+				<button>your location</button>
+				<br />
+				<select>
+					{
+
+						firstTenCities.map( (city, i) => {
+							return (
+								<option value={city} key={i} >{city}</option>
+							)
+						})
+					}
+				</select>
+			</div>
+		);
+	}
 }
 
 

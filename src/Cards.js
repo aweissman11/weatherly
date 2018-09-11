@@ -13,6 +13,7 @@ export default class Cards extends Component {
                             fullCityList={this.props.fullCityList}
                             newTrie={this.props.newTrie}
                             parseUserEntry={this.props.parseUserEntry}
+                            setCard={this.props.setCard}
                           />,
                           <CurrentWeather 
                             localStats={this.props.localStats}
