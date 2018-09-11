@@ -64,8 +64,6 @@ class App extends Component {
     
     let noComma = parsedLocation.replace( /,/g, '' );
 
-    console.log(noComma);
-
     this.fetchCityWeatherData(noComma)
     this.setCard(1, -100)
   }

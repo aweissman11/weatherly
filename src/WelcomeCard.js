@@ -49,7 +49,7 @@ export default class WelcomeCard extends Component {
 
 		return (
 			<div className='welcome'>
-				<h1>WELCOME TO THE WEATHER</h1>
+				<h1>i know weather</h1>
 				<form className='search-form' onSubmit={ this.handleSubmit }>
 					<input 
 						list='searches'
@@ -73,9 +73,10 @@ export default class WelcomeCard extends Component {
 						}
 					</datalist>
 					<br />
-					<button onClick={ this.enterValue }>Show Me the Weather!</button>
+					<button onClick={ this.enterValue }>show me.</button>
 				</form>
-				<button>CURRENT WEATHER</button>
+				<button>your location</button>
+				<br />
 				<select>
 					{
 
