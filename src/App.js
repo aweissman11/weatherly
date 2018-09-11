@@ -7,16 +7,22 @@ import Cards from './Cards';
 import NavBtns from './NavBtns';
 import apiKey from './Key';
 
+import cityList from './largest1000cities';
+import Trie from '@aweissman/trie-autosuggest/lib/trie.js';
+
+let newTrie = new Trie();
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
+
       localStats: data.current_observation,
       localForecast: data.forecast,
       hourlyForecast: data.hourly_forecast,
       tenDay: data.forecast.simpleforecast,
+      newTrie: newTrie,
 
       // weatherApiData: {},
       // localForecast: {},
@@ -34,10 +40,19 @@ class App extends Component {
 
   componentDidMount() {
 
-    this.fetchCityWeatherData('autoip');
     
     let boxWidth = document.getElementsByClassName("card").clientWidth;
     this.setState({ width: boxWidth });
+
+
+    this.fetchCityWeatherData('autoip');
+
+    this.fetchLocationList()
+
+
+
+
+
   }
 
   parseUserEntry(entry) {
@@ -56,10 +71,47 @@ class App extends Component {
     this.fetchCityWeatherData(noComma)
   }
 
-  fetchCityWeatherData(location) {
-   // UnComment the following function to access the API
-   // Will need to edit it to interpolate the location as well
+  fetchLocationList() {
 
+    if (localStorage.getItem('fullCityList')) {
+      let fullCityList = JSON.parse(localStorage.getItem('fullCityList'))
+      this.setState({
+        fullCityList: fullCityList
+      })
+
+      let cityList = fullCityList.map( city => city.location)
+      
+      this.state.newTrie.populate(cityList)
+      this.setState({
+        newTrie: newTrie
+      })
+
+    } else {
+
+      this.setState({
+        newTrie: newTrie
+      })
+
+      let fullCityList = cityList.cityList.reduce( (fullObj, city) => {
+        fullObj.push({
+          location: city.toLowerCase(),
+          clicks: 0,
+          recency: 0
+        })
+        return fullObj
+      }, [])
+
+      this.state.newTrie.populate(cityList.cityList)
+
+      localStorage.setItem('fullCityList', JSON.stringify(fullCityList))
+      this.setState({
+        fullCityList: fullCityList
+      })
+    }
+  }
+
+
+  fetchCityWeatherData(location) {
    let jsonLocation = location;
 
    let fetchCall = (`http://api.wunderground.com/api/${apiKey.apiKey}/conditions/forecast10day/hourly10day/q/${jsonLocation}.json`)
@@ -80,7 +132,6 @@ class App extends Component {
     })
   }
 
-  // click the slider buttons
   handleClick(type) {
 
     const cardNumber = 5; // the number of cards
@@ -88,12 +139,25 @@ class App extends Component {
     let position = this.state.position; // the position of the cards
 
     // slide cards
-    if(type === 'next' && currentCard < cardNumber-1) {
-      currentCard++;
-      position -= (100);
-    } else if(type === 'prev' && currentCard > 0) {
-      currentCard--;
-      position += (100);
+    if(type === 'next') {
+      if (currentCard < cardNumber-1) {
+        currentCard++;
+        position -= (100);
+        console.log('current card: ', currentCard)
+        console.log('position: ', position)
+      } else {
+
+        currentCard = 0;
+        position = 0;
+      }
+    } else if(type === 'prev') {
+      if (currentCard > 0) {
+        currentCard--;
+        position += (100);
+      } else {
+        currentCard = 4;
+        position = -400; 
+      }
     }
     this.setCard(currentCard, position);
   }
@@ -109,6 +173,9 @@ class App extends Component {
   }
 
   render() {
+
+    // console.log(this.state)
+
     return (
       <div className='App'>
         <figure>
@@ -124,6 +191,8 @@ class App extends Component {
             localForecast={this.state.localForecast}
             tenDay={this.state.tenDay}
             hourlyForecast={this.state.hourlyForecast}
+            fullCityList={this.state.fullCityList}
+            newTrie={this.state.newTrie}
           />
           <div className='nav'>
             <NavBtns 
@@ -140,9 +209,3 @@ class App extends Component {
 
 export default App;
 
-
-
-        // <header className="App-header">
-        //   <img src={logo} className="App-logo" alt="logo" />
-        //   <h1 className="App-title">Welcome to React</h1>
-        // </header>

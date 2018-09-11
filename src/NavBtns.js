@@ -11,11 +11,7 @@ export default class NavBtns extends Component {
   //   // }
   // }
 
-  // set up function here
-
-  switchCard(currentCard, position) {
-    this.props.setCard(currentCard, position);
-  }
+  // set up functions here
 
   render() {
     // Deconstruct state obj here if needed
@@ -31,8 +27,6 @@ export default class NavBtns extends Component {
 
 
     return (
-      // Map out the buttons here
-      // Bold out whichiver one is current
       <ul className='nav-btns' key={Date.now()}>
         {
           btnTitleArray.map( (btn, i) => {
@@ -41,7 +35,7 @@ export default class NavBtns extends Component {
                 <li 
                   key={i} 
                   className='current-nav-btn'
-                  onClick={ () => this.switchCard(i, (i * -100)) }  
+                  onClick={ () => this.props.setCard(i, (i * -100)) }  
                 >
                     {btn}
                 </li>
@@ -51,7 +45,7 @@ export default class NavBtns extends Component {
                 <li 
                   key={i} 
                   className='nav-btn'
-                  onClick={ () => this.switchCard(i, (i * -100)) }  
+                  onClick={ () => this.props.setCard(i, (i * -100)) }  
                 >
                     {btn}
                 </li>

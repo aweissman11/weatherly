@@ -1,5 +1,5 @@
 export default {
-  "data": [
+  "cityList": [
     "New York, NY",
     "Los Angeles, CA",
     "Chicago, IL",
