@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
-
-import data from './largest1000cities';
-// const { Trie } = require('@aweissman/trie-autosuggest/lib/trie.js');
-import Trie from '@aweissman/trie-autosuggest/lib/trie.js';
+import cityList from './largest1000cities';
 
 export default class WelcomeCard extends Component {
 	constructor() {
@@ -12,20 +9,17 @@ export default class WelcomeCard extends Component {
 
 		this.state = {
 			recentSearches: [],
-
 		}
 	}
 
 	suggestCities(event) {
-		const newTrie = new Trie();
-		newTrie.populate(data.data);
-		// console.log(e);
-		console.log(newTrie.displayWords());
-		// console.log(newTrie.suggest('bos'));
+		console.log(this.props.newTrie.suggest(event))
 	}
 
+
+
 	render() {
-		const firstTenCities = data.data.slice(0, 10)
+		const firstTenCities = cityList.cityList.slice(0, 10)
 
 		return (
 			<div className='welcome'>
