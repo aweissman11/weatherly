@@ -9,6 +9,7 @@ export default class WelcomeCard extends Component {
 
 		this.state = {
 			recentSearches: [],
+			value: ''
 		}
 	}
 
@@ -26,7 +27,7 @@ export default class WelcomeCard extends Component {
 
 	render() {
 		let entry = this.state.value
-		const firstTenCities = data.data.slice(0, 10)
+		const firstTenCities = cityList.cityList.slice(0, 10)
 
 		return (
 			<div className='welcome'>
@@ -36,7 +37,7 @@ export default class WelcomeCard extends Component {
 						type='text' 
 						placeholder='Enter a city/state or zip code'
 						onKeyUp={	this.changeValue.bind(this) }
-						// onKeyUp={ (event) => this.suggestCities(event.target.value)}
+						onKeyUp={ (event) => this.suggestCities(event.target.value)}
 					/>
 					<br />
 					<button onClick={ this.changeValue.bind(this), () => this.props.parseUserEntry(entry)}>Show Me the Weather!</button>
