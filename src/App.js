@@ -59,16 +59,16 @@ class App extends Component {
 
   parseUserEntry(entry) {
     let trimmedEntry = entry.trim();
-    let splitEntry = trimmedEntry.split(' ');
+    let splitEntry = trimmedEntry.split(',');
     let locationStr = '';
 
     if(splitEntry.length === 2) {
       var parsedLocation = locationStr.concat(splitEntry[1] + '/' + splitEntry[0])
     } else if (splitEntry.length === 1) {
-      var parsedLocation = locationStr.concat(splitEntry[0])
+      parsedLocation = locationStr.concat(splitEntry[0])
     };
     
-    let noComma = parsedLocation.replace( /\,/g, '' );
+    let noComma = parsedLocation.replace( /,/g, '' );
 
     this.fetchCityWeatherData(noComma)
   }

@@ -34,7 +34,7 @@ export default class WelcomeCard extends Component {
 
         return (
             <div className='welcome'>
-                <h1>i know the weather</h1>
+                <h1>i know weather</h1>
                 <form className='search-form' onSubmit={ this.handleSubmit }>
                     <input
                       type='text'
