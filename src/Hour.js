@@ -21,16 +21,15 @@ class Hour extends Component {
   render() {
     return (
       <div className='hour-div' onClick={this.toggleInfo}>
-        <p className='hour'>Hour: <span>{this.props.hour}</span></p>
-        <p className='current-temp'>Temp: <span>{this.props.currentTemp}</span></p>
+        <p className='hour'>time: <span>{this.props.hour}</span>:00</p>
+        <p className='current-temp'><span>{this.props.currentTemp}</span>&deg;f</p>
         <p><img alt='weather-condition' src={this.props.image}></img></p>
         {
           this.state.showInfo &&
             <div className='xtra-info'>
-              <p className='hour-condition'>Condition: <span>{this.props.condition}</span></p>
-              <p className='humidity'>Humidity: <span>{this.props.humidity}</span></p>
-              <p className='windchill'>Windchill: <span>{this.props.windchill}</span></p>
-              <p className='feelslike'>Feels Like: <span>{this.props.feelslike}</span></p>
+              <p className='hour-condition'>condition: <span>{this.props.condition.toLowerCase()}</span></p>
+              <p className='humidity'>humidity: <span>{this.props.humidity}</span></p>
+              <p className='feelslike'>feels like: <span>{this.props.feelslike}</span>&deg;f</p>
             </div>
         }
 

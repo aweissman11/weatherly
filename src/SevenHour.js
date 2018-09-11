@@ -10,7 +10,7 @@ class SevenHour extends Component {
   render() {
     return (
       <div className='seven-hour'>
-        <h1 className='seven-hour-header'>SEVEN HOUR FORECAST</h1>
+        <h1 className='seven-hour-header'>seven hour forecast</h1>
 
         {
           this.props.hourlyForecast.map( (hour, index) => {

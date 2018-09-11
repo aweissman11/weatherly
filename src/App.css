@@ -1,6 +1,6 @@
 * {
-  font-family: 'Ubuntu', sans-serif;
   color:  #69AF63;
+  font-family: 'Fira Mono', monospace;
   box-sizing: border-box;
   object-fit: contain;
   margin: 0;
@@ -10,6 +10,7 @@
 }
 
 body {
+  /*font-size: 2em;*/
   background-image: url(https://thumbs.gfycat.com/CalmSimilarCob-size_restricted.gif) ;
   background-size: cover;
   width: 90%;
@@ -31,6 +32,7 @@ figure,
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    list-style: none;
 }
 
 .nav-btn {
@@ -47,6 +49,7 @@ figure,
 .ten-day-forecast,
 .seven-hour,
 .twentyfour-hour {
+  background-color: rgba(227, 234, 228, .3);
   white-space: normal;
   height: 100%;
   width: 84%;
@@ -77,14 +80,6 @@ figure,
 .hour-div {
   height: 100%;
   margin-bottom: 15px;
-}
-
-.welcome,
-.ten-day-forecast,
-.current-weather, 
-.seven-hour,
-.twentyfour-hour {
-  background-color: rgba(227, 234, 228, .3);
 }
 
 .twentyfour-hour img {

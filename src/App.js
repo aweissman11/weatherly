@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import data from './sampleData';
 
+//line five
+
 import './App.css';
 import Cards from './Cards';
 import NavBtns from './NavBtns';
@@ -146,7 +148,6 @@ class App extends Component {
         console.log('current card: ', currentCard)
         console.log('position: ', position)
       } else {
-
         currentCard = 0;
         position = 0;
       }
@@ -174,14 +175,20 @@ class App extends Component {
 
   render() {
 
-    // console.log(this.state)
-
     return (
       <div className='App'>
         <figure>
           <div className="slider-btns">
             <button className="slider-btn btn-l" onClick={() => this.handleClick('prev')}>&lt;</button>
             <button className="slider-btn btn-r" onClick={() => this.handleClick('next')}>&gt;</button>
+          </div>
+          
+          <div className='nav'>
+            <NavBtns 
+              setCard={this.setCard.bind(this)}
+              currentCard={this.state.currentCard}
+              position={this.state.position}
+            />
           </div>
 
           <Cards 
@@ -194,13 +201,6 @@ class App extends Component {
             fullCityList={this.state.fullCityList}
             newTrie={this.state.newTrie}
           />
-          <div className='nav'>
-            <NavBtns 
-              setCard={this.setCard.bind(this)}
-              currentCard={this.state.currentCard}
-              position={this.state.position}
-            />
-          </div>
         </figure>
       </div>
     );
