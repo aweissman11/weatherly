@@ -3,41 +3,52 @@ import React, { Component } from 'react';
 
 import data from './largest1000cities';
 // const { Trie } = require('@aweissman/trie-autosuggest/lib/trie.js');
-import Trie from '@aweissman/trie-autosuggest/lib/trie.js';
+// import Trie from '@aweissman/trie-autosuggest/lib/trie.js';
 
 export default class WelcomeCard extends Component {
 	constructor() {
 		super();
 
-
 		this.state = {
 			recentSearches: [],
+			value: ''
+		};
 
-		}
 	}
 
-	suggestCities(event) {
-		const newTrie = new Trie();
-		newTrie.populate(data.data);
-		// console.log(e);
-		console.log(newTrie.displayWords());
-		// console.log(newTrie.suggest('bos'));
+	handleSubmit(event) {
+		event.preventDefault();
 	}
+
+	changeValue(event) {
+		this.setState( { value: event.target.value } )
+	}
+
+
+	// suggestCities(event) {
+	// 	const newTrie = new Trie();
+	// 	newTrie.populate(data.data);
+	// 	// console.log(e);
+	// 	console.log(newTrie.displayWords());
+	// 	// console.log(newTrie.suggest('bos'));
+	// }
 
 	render() {
+		let entry = this.state.value
 		const firstTenCities = data.data.slice(0, 10)
 
 		return (
 			<div className='welcome'>
 				<h1>WELCOME TO THE WEATHER</h1>
-				<form className='search-form'>
+				<form className='search-form' onSubmit={ this.handleSubmit }>
 					<input 
 						type='text' 
 						placeholder='Enter a city/state or zip code'
-						onKeyUp={ (event) => this.suggestCities(event.target.value)}
+						onKeyUp={	this.changeValue.bind(this) }
+						// onKeyUp={ (event) => this.suggestCities(event.target.value)}
 					/>
 					<br />
-					<button>Show Me the Weather!</button>
+					<button onClick={ this.changeValue.bind(this), () => this.props.parseUserEntry(entry)}>Show Me the Weather!</button>
 				</form>
 				<button>CURRENT WEATHER</button>
 				<select>

@@ -40,11 +40,21 @@ class App extends Component {
     this.setState({ width: boxWidth });
   }
 
-  // parseLocationEntry(entry) {
-  //   trim and split the entry
-  //   handle it if it's a city or if it's a zipcode
-  //   once ready, run fetchCityWeatherData()
-  // }
+  parseUserEntry(entry) {
+    let trimmedEntry = entry.trim();
+    let splitEntry = trimmedEntry.split(' ');
+    let locationStr = '';
+
+    if(splitEntry.length === 2) {
+      var parsedLocation = locationStr.concat(splitEntry[1] + '/' + splitEntry[0])
+    } else if (splitEntry.length === 1) {
+      var parsedLocation = locationStr.concat(splitEntry[0])
+    };
+    
+    let noComma = parsedLocation.replace( /\,/g, '' );
+
+    this.fetchCityWeatherData(noComma)
+  }
 
   fetchCityWeatherData(location) {
    // UnComment the following function to access the API
@@ -109,6 +119,7 @@ class App extends Component {
 
           <Cards 
             cardStyle={this.state.cardStyle} 
+            parseUserEntry={this.parseUserEntry.bind(this)}
             localStats={this.state.localStats}
             localForecast={this.state.localForecast}
             tenDay={this.state.tenDay}
