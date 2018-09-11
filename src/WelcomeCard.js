@@ -49,12 +49,20 @@ export default class WelcomeCard extends Component {
 
 		return (
 			<div className='welcome'>
-				<h1>i know weather</h1>
+				{
+					localStorage.length === 1 && <h1 className='welcome-msg'>welcome, to the weather.</h1>
+				}
+				{
+					localStorage.length >= 2 && <h1 className='welcome-msg'>i know why you're here. you're looking for the weather.</h1>
+				}
+				
+				<h2 className='welcome-title'>i know weather</h2>
 				<form className='search-form' onSubmit={ this.handleSubmit }>
 					<input 
+						className='user-input'
 						list='searches'
 						type='text' 
-						placeholder='Enter a city/state or zip code'
+						placeholder='enter a city/state or zip code'
 						onKeyUp={ this.changeValue }
 					/>
 					<datalist id='searches'>
@@ -73,11 +81,14 @@ export default class WelcomeCard extends Component {
 						}
 					</datalist>
 					<br />
-					<button onClick={ this.enterValue }>show me.</button>
+					<button 
+						className='submit-btn'
+						onClick={ this.enterValue }>show me.
+					</button>
 				</form>
-				<button>your location</button>
+				<button className='your-location-btn'>your location</button>
 				<br />
-				<select>
+				<select className='welcome-recents'>
 					{
 
 						firstTenCities.map( (city, i) => {
