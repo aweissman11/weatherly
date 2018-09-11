@@ -9,7 +9,7 @@ import TwentyFourHour from './24Hour';
 
 export default class Cards extends Component {
   render() {
-    const cardsArray = [  <WelcomeCard />,
+    const cardsArray = [  <WelcomeCard parseUserEntry={this.props.parseUserEntry}/>,
                           <CurrentWeather 
                             localStats={this.props.localStats}
                             localForecast={this.props.localForecast}
