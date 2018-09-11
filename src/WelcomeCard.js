@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import cityList from './largest1000cities';
 
+
 export default class WelcomeCard extends Component {
 	constructor() {
 		super();
-
 
 		this.state = {
 			recentSearches: [],
@@ -16,22 +16,30 @@ export default class WelcomeCard extends Component {
 		console.log(this.props.newTrie.suggest(event))
 	}
 
+	handleSubmit(event) {
+		event.preventDefault();
+	}
 
+	changeValue(event) {
+		this.setState( { value: event.target.value } )
+	}
 
 	render() {
-		const firstTenCities = cityList.cityList.slice(0, 10)
+		let entry = this.state.value
+		const firstTenCities = data.data.slice(0, 10)
 
 		return (
 			<div className='welcome'>
 				<h1>WELCOME TO THE WEATHER</h1>
-				<form className='search-form'>
+				<form className='search-form' onSubmit={ this.handleSubmit }>
 					<input 
 						type='text' 
 						placeholder='Enter a city/state or zip code'
-						onKeyUp={ (event) => this.suggestCities(event.target.value)}
+						onKeyUp={	this.changeValue.bind(this) }
+						// onKeyUp={ (event) => this.suggestCities(event.target.value)}
 					/>
 					<br />
-					<button>Show Me the Weather!</button>
+					<button onClick={ this.changeValue.bind(this), () => this.props.parseUserEntry(entry)}>Show Me the Weather!</button>
 				</form>
 				<button>CURRENT WEATHER</button>
 				<select>

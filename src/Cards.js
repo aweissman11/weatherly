@@ -12,6 +12,7 @@ export default class Cards extends Component {
     const cardsArray = [  <WelcomeCard 
                             fullCityList={this.props.fullCityList}
                             newTrie={this.props.newTrie}
+                            parseUserEntry={this.props.parseUserEntry}
                           />,
                           <CurrentWeather 
                             localStats={this.props.localStats}
