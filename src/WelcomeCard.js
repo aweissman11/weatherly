@@ -11,36 +11,69 @@ export default class WelcomeCard extends Component {
 			recentSearches: [],
 			value: ''
 		}
+		this.changeValue = this.changeValue.bind(this);
+		this.enterValue = this.enterValue.bind(this);
 	}
 
-	suggestCities(event) {
-		console.log(this.props.newTrie.suggest(event))
-	}
 
 	handleSubmit(event) {
 		event.preventDefault();
 	}
 
 	changeValue(event) {
+		console.log(event.target.value)
+		event.preventDefault();
 		this.setState( { value: event.target.value } )
+		this.suggestCities(event.target.value)
+	}
+
+	enterValue(event) {
+		event.preventDefault()
+		this.setState( { value: event.target.value } )
+		this.props.parseUserEntry(this.state.value);
+	}
+
+	suggestCities(event) {
+		// console.log(this.props.newTrie.suggest(event))
+
+		this.setState({recentSearches: this.props.newTrie.suggest(event)})
+		
+
 	}
 
 	render() {
-		let entry = this.state.value
+		// let entry = this.state.value
 		const firstTenCities = cityList.cityList.slice(0, 10)
+
+		// console.log(this.state.recentSearches);
 
 		return (
 			<div className='welcome'>
 				<h1>WELCOME TO THE WEATHER</h1>
 				<form className='search-form' onSubmit={ this.handleSubmit }>
 					<input 
+						list='searches'
 						type='text' 
 						placeholder='Enter a city/state or zip code'
-						onKeyUp={	this.changeValue.bind(this) }
-						onKeyUp={ (event) => this.suggestCities(event.target.value)}
+						onKeyUp={ this.changeValue }
 					/>
+					<datalist id='searches'>
+						{
+							this.state.recentSearches.map( (search, i) => {
+								return (
+									<option
+										onClick={ this.enterValue} 
+										key={i} 
+										value={search}
+										>
+											{search}
+									</option> 
+								)
+							}).slice(0, 10)		
+						}
+					</datalist>
 					<br />
-					<button onClick={ this.changeValue.bind(this), () => this.props.parseUserEntry(entry)}>Show Me the Weather!</button>
+					<button onClick={ this.enterValue }>Show Me the Weather!</button>
 				</form>
 				<button>CURRENT WEATHER</button>
 				<select>

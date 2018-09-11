@@ -8,7 +8,7 @@ import NavBtns from './NavBtns';
 import apiKey from './Key';
 
 import cityList from './largest1000cities';
-import Trie from '@aweissman/trie-autosuggest/lib/trie.js';
+import Trie from '@aweissman/trie-autosuggest';
 
 let newTrie = new Trie();
 
@@ -49,26 +49,25 @@ class App extends Component {
 
     this.fetchLocationList()
 
-
-
-
-
   }
 
   parseUserEntry(entry) {
     let trimmedEntry = entry.trim();
-    let splitEntry = trimmedEntry.split(' ');
+    let splitEntry = trimmedEntry.split(',');
     let locationStr = '';
 
     if(splitEntry.length === 2) {
       var parsedLocation = locationStr.concat(splitEntry[1] + '/' + splitEntry[0])
     } else if (splitEntry.length === 1) {
-      var parsedLocation = locationStr.concat(splitEntry[0])
+      parsedLocation = locationStr.concat(splitEntry[0])
     };
     
-    let noComma = parsedLocation.replace( /\,/g, '' );
+    let noComma = parsedLocation.replace( /,/g, '' );
+
+    console.log(noComma);
 
     this.fetchCityWeatherData(noComma)
+    this.setCard(1, -100)
   }
 
   fetchLocationList() {
@@ -115,6 +114,7 @@ class App extends Component {
    let jsonLocation = location;
 
    let fetchCall = (`http://api.wunderground.com/api/${apiKey.apiKey}/conditions/forecast10day/hourly10day/q/${jsonLocation}.json`)
+
 
    fetch(fetchCall)
     .then(data => data.json())
@@ -187,6 +187,7 @@ class App extends Component {
           <Cards 
             cardStyle={this.state.cardStyle} 
             parseUserEntry={this.parseUserEntry.bind(this)}
+            setCard={this.setCard.bind(this)}
             localStats={this.state.localStats}
             localForecast={this.state.localForecast}
             tenDay={this.state.tenDay}
