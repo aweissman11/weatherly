@@ -11,7 +11,7 @@ class CurrentWeather extends Component {
   render() {
     return (
       <div className='current-weather'>
-        <h1>CURRENT WEATHER</h1>
+        <h1>current weather</h1>
 
         <p>{this.props.localStats.display_location.full}</p>
         <p>{this.props.localStats.weather}</p>

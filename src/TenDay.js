@@ -14,7 +14,7 @@ export default class TenDay extends Component {
   render() {
     return (
       <div className='ten-day-forecast'>
-        <h1 className='ten-day-header'>TEN DAY FORECAST</h1>
+        <h1 className='ten-day-header'>ten day forecast</h1>
         <section className='ten-days'>
   				{
   					this.props.tenDay.forecastday.map( (day, index) => {

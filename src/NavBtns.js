@@ -18,11 +18,11 @@ export default class NavBtns extends Component {
 
     const { currentCard } = this.props
 
-    const btnTitleArray = ['Search',
-                           'Current Weather',
-                           '7 Hour Forecast',
-                           '10 Day Forecast',
-                           '24 Hour Forecast'
+    const btnTitleArray = ['search',
+                           'current weather',
+                           '7 hour forecast',
+                           '10 day forecast',
+                           '24 hour forecast'
                            ]
 
 
