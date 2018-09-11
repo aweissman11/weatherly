@@ -1,3 +1,9 @@
+Wireframes:
+![img_20180911_172251](https://user-images.githubusercontent.com/35431767/45394001-cc0ac500-b5eb-11e8-95c1-0f81c6d6f757.jpg)
+![img_20180911_172300](https://user-images.githubusercontent.com/35431767/45394007-d1680f80-b5eb-11e8-82c7-ec06a718e6c1.jpg)
+![img_20180911_172308](https://user-images.githubusercontent.com/35431767/45394011-d5942d00-b5eb-11e8-9b4b-479588162f33.jpg)
+![img_20180911_172315_1](https://user-images.githubusercontent.com/35431767/45394012-d7f68700-b5eb-11e8-8f5f-d36b3c983a23.jpg)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
