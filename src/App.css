@@ -70,11 +70,39 @@ h2 {
   padding: 20px 0px;
 }
 
+.current-condition,
+.current-temp,
+.current-high,
+.current-low {
+  margin-bottom: 1em;
+}
+
+.current-div {
+  display: block;
+  margin-right: 40%;
+  margin-top: 3em;
+}
+
+.current-header {
+  margin-top: .8em;
+}
+
+.current-location {
+  font-size: 24px;
+  /*text-align: left;*/
+  /*padding: 3em;*/
+  /*padding-bottom: 0;*/
+}
+
 .current-nav-btn {
   color: #B02032;
   cursor: pointer;
   font-size: 1.3em;
   font-weight: bold;
+}
+
+.current-update {
+  margin-bottom: 2em;
 }
 
 .current-weather,
