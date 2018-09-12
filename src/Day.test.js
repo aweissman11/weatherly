@@ -1,13 +1,22 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+
 import Day from './Day';
 
 describe('Day', () => {
 
+	const props = {
+		low: 20,
+		high: 60,
+		weekday: 'Wed',
+		condition: 'cloudy',
+		image: 'JK'
+	}
+
 	let wrapper;
 
 	beforeEach(() => {
-		wrapper = shallow(<Day />)
+		wrapper = shallow(<Day  {...props} />)
 	});
 
   it('should exist', () => {
