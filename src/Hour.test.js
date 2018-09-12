@@ -4,10 +4,19 @@ import Hour from './Hour';
 
 describe('Hour', () => {
 
+	const props = {
+		hour: 12,
+		currentTemp: 60,
+		image: 'JK',
+		condition: 'cloudy',
+		humidity: -9999,
+		feelsLike: 9999
+	}
+
 	let wrapper;
 
 	beforeEach(() => {
-		wrapper = shallow(<Hour />)
+		wrapper = shallow(<Hour {...props} />)
 	});
 
   it('should exist', () => {
@@ -39,11 +48,6 @@ describe('Hour', () => {
 	it('should render the Hour\'s humidity', () => {
 		wrapper.instance().toggleInfo();
 		expect(wrapper.find('.humidity').length).toEqual(1);
-	});
-
-	it('should render the Hour\'s windchill', () => {
-		wrapper.instance().toggleInfo();
-		expect(wrapper.find('.windchill').length).toEqual(1);
 	});
 
 	it('should render the Hour\'s feels like temperature', () => {

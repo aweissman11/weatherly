@@ -27,7 +27,7 @@ class Hour extends Component {
         {
           this.state.showInfo &&
             <div className='xtra-info'>
-              <p className='hour-condition'>condition: <span>{this.props.condition.toLowerCase()}</span></p>
+              <p className='hour-condition'>condition: <span>{this.props.condition}</span></p>
               <p className='humidity'>humidity: <span>{this.props.humidity}</span></p>
               <p className='feelslike'>feels like: <span>{this.props.feelslike}</span>&deg;f</p>
             </div>

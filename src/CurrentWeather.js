@@ -22,7 +22,7 @@ class CurrentWeather extends Component {
           <p className='current-high'>today's high: {this.props.localForecast.simpleforecast.forecastday[0].high.fahrenheit}&deg;f</p>
           <p className='current-low'>today's low: {this.props.localForecast.simpleforecast.forecastday[0].low.fahrenheit}&deg;f</p>
           <p>summary: </p>
-          <p>{this.props.localForecast.txt_forecast.forecastday[0].fcttext}</p>
+          <p className='current-summary'>{this.props.localForecast.txt_forecast.forecastday[0].fcttext}</p>
         </div>
       </div>
     );
