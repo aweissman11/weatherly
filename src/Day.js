@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 export default class Day extends Component {
 
 	render() {
-
 		let thisWeekday = this.props.weekday.toLowerCase();
 		let thisCondition = this.props.condition.toLowerCase();
 
@@ -13,7 +12,7 @@ export default class Day extends Component {
 				<p className='high'>high: <span>{this.props.high}</span>&deg;f</p>
 				<p className='low'>low: <span>{this.props.low}</span>&deg;f</p>
 				<p><img alt='weather-condition' className='day-img' src={this.props.image}/></p>
-				<p className='day-condition'>condition: <span>{thisCondition}</span></p>
+				<p className='day-condition'>{thisCondition}</p>
 			</div>
 		);
 	}
