@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import Day from './Day'
 
 export default class TenDay extends Component {
-	constructor() {
-		super();
-	}
 
   render() {
     return (

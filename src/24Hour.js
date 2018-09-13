@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 import Hour from './Hour';
 
 export default class TwentyFourHour extends Component {
-	// constructor() {
-	// 	super();
-	// }
+	constructor() {
+		super();
+	}
 
 	render() {
 		return (
 			<div className='twentyfour-hour'>
 				<h1 className='twentyfour-hour-header'>twenty-four hour forecast</h1>
-        <section className='twentyfour-hours'>
+        <section className='twentyfour-hours-block'>
   				{
   					this.props.hourlyForecast.map( (hour, index) => {
   						return <Hour
@@ -20,7 +20,6 @@ export default class TwentyFourHour extends Component {
                 image={hour.icon_url}
                 condition={hour.condition}
                 humidity={hour.humidity}
-                windchill={hour.windchill.english}
                 feelslike={hour.feelslike.english}
                 key={index}
   						/>
