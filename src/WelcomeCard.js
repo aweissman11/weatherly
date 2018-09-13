@@ -24,6 +24,7 @@ export default class WelcomeCard extends Component {
 		this.suggestCities(event.target.value)
 	}
 
+
 	enterHereAsValue() {
 		this.setState({ value: 'autoapi' })
 		this.enterValue('autoapi')
