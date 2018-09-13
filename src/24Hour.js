@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import Hour from './Hour';
 
 export default class TwentyFourHour extends Component {
-	constructor() {
-		super();
-	}
 
 	render() {
 		return (

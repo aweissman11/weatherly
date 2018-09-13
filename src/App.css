@@ -28,7 +28,7 @@ figure,
 }
 
 h1 {
-  font-size: 3.5em;
+  font-size: 2.5em;
   font-weight: 400;
 }
 
@@ -67,6 +67,7 @@ h2 {
   display: inline-block;
   transition: transform .4s;
   padding: 20px 0px;
+  overflow: scroll;
 }
 
 .current-condition,
@@ -80,9 +81,9 @@ h2 {
   background-color: rgba(81,84,82, .8);
   border-radius: 15px;
   display: block;
-  font-size: 20px;
+  font-size: 14px;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 2%;
   padding: 2em;
   width: 60%;
 }
@@ -93,13 +94,6 @@ h2 {
 
 .current-location {
   font-size: 30px;
-}
-
-.current-nav-btn {
-  color: #B02032;
-  cursor: pointer;
-  font-size: 1.3em;
-  font-weight: bold;
 }
 
 .current-update {
@@ -148,12 +142,36 @@ h2 {
   font-size: 1.3em;
 }
 
+.nav-btn:hover {
+  filter: brightness(125%);
+}
+
+.current-nav-btn {
+  color: #B02032;
+  cursor: pointer;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.nav-btn,
+.current-nav-btn {
+  height: 100%;
+  white-space: normal;
+  margin-bottom: 20px;
+
+}
+
+.nav {
+  height: 100%;
+}
+
 .nav-btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style: none;
-    margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .recents-label {
@@ -175,13 +193,6 @@ h2 {
 .ten-days-block,
 .twentyfour-hours-block {
   grid-row: 2 / 3;
-}
-
-.seven-hour,
-.ten-day-forecast {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-gap: 20px;
 }
 
 .slider-btn {
@@ -228,10 +239,6 @@ h2 {
   display: none;
 }
 
-.twentyfour-hour-header {
-  margin-top: -35px;
-}
-
 .twentyfour-hour p {
   font-size: 12px;
 }
@@ -271,13 +278,10 @@ h2 {
   font-size: 14px;
   height: 4em;
   width: 90%;
+  margin-bottom: 1.5em;
+  margin-top: .55em;
 }
 
 .welcome-title {
   margin-bottom: 5%;
 }
-
-.your-location-btn {
-  margin-bottom: 2.5em;
-}
-
