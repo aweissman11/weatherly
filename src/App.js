@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import data from './sampleData';
 
-//line five
-
 import './App.css';
 import Cards from './Cards';
 import NavBtns from './NavBtns';
@@ -19,18 +17,11 @@ class App extends Component {
     super();
 
     this.state = {
-
       localStats: data.current_observation,
       localForecast: data.forecast,
       hourlyForecast: data.hourly_forecast,
       tenDay: data.forecast.simpleforecast,
       newTrie: newTrie,
-
-      // weatherApiData: {},
-      // localForecast: {},
-      // hourlyForecast: {},
-      // tenDay: {},
-
       currentCard: 0,
       position: 0,
       cardStyle: {
@@ -41,16 +32,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-
-    
     let boxWidth = document.getElementsByClassName("card").clientWidth;
+
     this.setState({ width: boxWidth });
-
-
     this.fetchCityWeatherData('autoip');
-
     this.fetchLocationList()
-
   }
 
   parseUserEntry(entry) {
@@ -112,9 +98,7 @@ class App extends Component {
 
   fetchCityWeatherData(location) {
    let jsonLocation = location;
-
    let fetchCall = (`http://api.wunderground.com/api/${apiKey.apiKey}/conditions/forecast10day/hourly10day/q/${jsonLocation}.json`)
-
 
    fetch(fetchCall)
     .then(data => data.json())
@@ -133,12 +117,10 @@ class App extends Component {
   }
 
   handleClick(type) {
+    const cardNumber = 5;
+    let currentCard = this.state.currentCard; 
+    let position = this.state.position;
 
-    const cardNumber = 5; // the number of cards
-    let currentCard = this.state.currentCard; // the index of the current card
-    let position = this.state.position; // the position of the cards
-
-    // slide cards
     if(type === 'next') {
       if (currentCard < cardNumber-1) {
         currentCard++;
