@@ -6,46 +6,130 @@ import cityList from './largest1000cities';
 export default class WelcomeCard extends Component {
 	constructor() {
 		super();
-
+		
 		this.state = {
-			recentSearches: [],
-			value: ''
+			autoSuggestion: [],
+			value: '',
 		}
 		this.changeValue = this.changeValue.bind(this);
 		this.enterValue = this.enterValue.bind(this);
-	}
 
+
+	}
 
 	handleSubmit(event) {
 		event.preventDefault();
 	}
 
 	changeValue(event) {
-		console.log(event.target.value)
 		event.preventDefault();
 		this.setState( { value: event.target.value } )
 		this.suggestCities(event.target.value)
 	}
 
-	enterValue(event) {
-		event.preventDefault()
-		this.setState( { value: event.target.value } )
-		this.props.parseUserEntry(this.state.value);
+	enterValue(location) {
+		// location.preventDefault()
+
+		//if the entry = an existing location
+			//add one to the click count
+		// create new location object
+			// click count of 1
+			// recency of 10
+
+				// console.log('else:', location)
+
+		// let autoSuggestion = this.state.autoSuggestion
+		// console.log('recents:', this.state.autoSuggestion)
+		// console.log('top:', this.state.topSearches)
+
+		// let topSearches = this.state.topSearches;
+
+
+
+
+		let newCityList = this.props.fullCityList.reduce( (newList, city, i) => {
+	 		if (city.location === location) {
+				// console.log('entered location:', location)
+				// console.log('location:', city.location)
+				// topSearches.push(city.location)
+				city.clicks++;
+				console.log('recency:', city.recency)
+				city.recency = 10;
+				console.log('recency:', city.recency)
+				// console.log('clicks:', city.clicks)
+
+			} else {
+				// console.log('else:', location)
+				// console.log('else location:', city.location)
+				if (city.recency > 0) {
+					city.recency--;
+				}
+
+			}
+
+			return this.props.fullCityList
+		}, this.props.fullCityList)
+
+		localStorage.setItem('fullCityList', JSON.stringify(newCityList))
+
+
+		// //run recency function
+
+		this.setState( { value: location } )
+		this.parseUserEntryHere(location)
+	}
+
+	parseUserEntryHere(entry) {
+		// console.log('parsing now:', entry)
+		this.props.parseUserEntry(entry);
+
 	}
 
 	suggestCities(event) {
-		// console.log(this.props.newTrie.suggest(event))
+		let autoSuggestion = this.props.newTrie.suggest(event)
+		let cityObjs = this.props.fullCityList.filter( city => {
+			if (autoSuggestion.includes(city.location)) {
+				return city;
+			}
+		})
 
-		this.setState({recentSearches: this.props.newTrie.suggest(event)})
-		
+		let sortedSuggestionObjs = this.sortByKey(cityObjs, ('clicks'), 'recency')
 
+		let finalArr = sortedSuggestionObjs.map( suggestion => {
+			return suggestion.location;
+		}).slice(0, 10)
+
+		this.setState({autoSuggestion: finalArr})
+	}
+
+	sortByKey(array, key, otherKey) {
+	    return array.sort(function(a, b) {
+	        var x = a[key] + a[otherKey]; var y = b[key] + b[otherKey];
+	        return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+	    });
+	}
+
+	showTopSearches() {
+		console.log(this.props.fullCityList);
+		// this.setState({
+		// 	topSearches: this.sortByKey(this.props.fullCityList, 'clicks', 'recency'),
+		// })
 	}
 
 	render() {
 		// let entry = this.state.value
 		const firstTenCities = cityList.cityList.slice(0, 10)
 
-		// console.log(this.state.recentSearches);
+		if (this.props.fullCityList) {
+
+			// console.log(this.props.fullCityList);
+			// topSearches = 
+			// console.log( topSearches)
+		}
+
+
+
+		// console.log(this.state.autoSuggestion);
 
 		return (
 			<div className='welcome'>
@@ -67,10 +151,10 @@ export default class WelcomeCard extends Component {
 					/>
 					<datalist id='searches'>
 						{
-							this.state.recentSearches.map( (search, i) => {
+							this.state.autoSuggestion.map( (search, i) => {
 								return (
 									<option
-										onClick={ this.enterValue} 
+										// onClick={ () => (this.enterValue(this.state.value)) } 
 										key={i} 
 										value={search}
 										>
@@ -83,7 +167,9 @@ export default class WelcomeCard extends Component {
 					<br />
 					<button 
 						className='submit-btn'
-						onClick={ this.enterValue }>show me.
+						// onClick={ this.enterValue }>show me.
+						onClick={ () => (this.enterValue(this.state.value)) }>show me.
+
 					</button>
 				</form>
 				<button className='your-location-btn'>your location</button>
