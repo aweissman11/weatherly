@@ -44,7 +44,7 @@ describe('App', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('should move cards on click', () => {
+  it('should move cards on click and then keep moving on the next click', () => {
     const navBtn = wrapper.find('.slider-btn').first();
     navBtn.simulate('click');
     expect(wrapper.instance().state.currentCard).toEqual(4)
@@ -61,11 +61,13 @@ describe('App', () => {
     navBtn.simulate('click');
     expect(wrapper.instance().state.currentCard).toEqual(0)
     expect(wrapper.instance().state.position).toEqual(0)
-  })
+  });
 
   it('should fetch the location list Object', () => {
     expect(wrapper.instance().state.fullCityList).toBeDefined()
-  })
+  });
+
+
 
   // it('calls fetch with the correct data when adding a new grocery', () => {
   //   const expectedFetchBody = {

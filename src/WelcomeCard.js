@@ -29,6 +29,7 @@ export default class WelcomeCard extends Component {
 		event.preventDefault()
 		this.setState( { value: event.target.value } )
 		this.props.parseUserEntry(this.state.value);
+		localStorage.setItem('hasVisited', 'visited');
 	}
 
 	suggestCities(event) {
@@ -41,10 +42,10 @@ export default class WelcomeCard extends Component {
 		return (
 			<div className='welcome'>
 				{
-					localStorage.length === 0 && <h1 className='welcome-msg'>welcome, to the weather.</h1>
+					!localStorage.getItem('hasVisited') && <h1 className='welcome-msg'>welcome, to the weather.</h1>
 				}
 				{
-					localStorage.length >= 1 && <h1 className='welcome-msg2'>i know why you're here. you're looking for the weather.</h1>
+					localStorage.getItem('hasVisited') && <h1 className='welcome-msg2'>i know why you're here. you're looking for the weather.</h1>
 				}
 				<section className='user-tools'>
 					<h2 className='welcome-title'>i know weather</h2>
