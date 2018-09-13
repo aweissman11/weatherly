@@ -92,55 +92,63 @@ export default class WelcomeCard extends Component {
 		return (
 			<div className='welcome'>
 				{
-					localStorage.length === 1 && <h1 className='welcome-msg'>welcome, to the weather.</h1>
+					localStorage.length === 0 && <h1 className='welcome-msg'>welcome, to the weather.</h1>
 				}
 				{
-					localStorage.length >= 2 && <h1 className='welcome-msg2'>i know why you're here. you're looking for the weather.</h1>
+					localStorage.length >= 1 && <h1 className='welcome-msg2'>i know why you're here. you're looking for the weather.</h1>
 				}
-				<h2 className='welcome-title'>i know weather</h2>
-				<form className='search-form' onSubmit={ this.handleSubmit }>
-					<input 
-						className='user-input'
-						list='searches'
-						type='text' 
-						placeholder='enter a city/state or zip code'
-						onKeyUp={ this.changeValue }
-					/>
-					<datalist id='searches'>
-						{
-							this.state.autoSuggestion.map( (search, i) => {
-								return (
-									<option
-										// onClick={ () => (this.enterValue(this.state.value)) } 
-										key={i} 
-										value={search}
-										>
-											{search}
-									</option> 
-								)
-							}).slice(0, 10)		
-						}
-					</datalist>
-					<br />
-					<button 
-						className='submit-btn'
-						// onClick={ this.enterValue }>show me.
-						onClick={ () => (this.enterValue(this.state.value)) }>show me.
 
-					</button>
-				</form>
-				<button className='your-location-btn' onClick={ () => this.enterHereAsValue() }>your location</button>
-				<br />
-				<select className='welcome-recents'>
-					{
-
-						firstTenCities.map( (city, i) => {
-							return (
-								<option value={city} key={i} >{city}</option>
-							)
-						})
-					}
-				</select>
+				<section className='user-tools'>
+					<h2 className='welcome-title'>i know weather</h2>
+					<form className='search-form' onSubmit={ this.handleSubmit }>
+						<input 
+							className='user-input'
+							list='searches'
+							type='text' 
+							placeholder='enter a city/state or zip code'
+							onKeyUp={ this.changeValue }
+						/>
+						<datalist id='searches'>
+							{
+								this.state.autoSuggestion.map( (search, i) => {
+									return (
+										<option
+											onClick={ this.enterValue} 
+											key={i} 
+											value={search}
+											>
+												{search}
+										</option> 
+									)
+								}).slice(0, 10)		
+							}
+						</datalist>
+						<br />
+						<button 
+							className='submit-btn'
+							onClick={ this.enterValue }>show me.
+						</button>
+					</form>
+					<section>
+						<button className='your-location-btn' onClick={ () => this.enterHereAsValue() }>see your weather</button>
+						<label 
+							for="recents"
+							className='recents-label'
+						>recent places:</label>
+						<select 
+							className='welcome-recents'
+							id='recents'
+						>
+							{
+								firstTenCities.map( (city, i) => {
+									return (
+										<option value={city} key={i} >{city}</option>
+									)
+								})
+							}
+						</select>
+					</section>
+				</section>
 			</div>
 		);
 	}
