@@ -95,7 +95,6 @@ class App extends Component {
     }
   }
 
-
   fetchCityWeatherData(location) {
    let jsonLocation = location;
    let fetchCall = (`http://api.wunderground.com/api/${apiKey.apiKey}/conditions/forecast10day/hourly10day/q/${jsonLocation}.json`)
@@ -140,6 +139,7 @@ class App extends Component {
         position = -400; 
       }
     }
+
     this.setCard(currentCard, position);
   }
   
