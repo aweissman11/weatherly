@@ -1,30 +1,15 @@
 import React, { Component } from 'react';
 
-
 export default class NavBtns extends Component {
-  // constructor() {
-  //   super();
-
-  //   // this.state = {
-  //   //   currentCard: this.props.currentCard,
-  //   //   position: this.props.position
-  //   // }
-  // }
-
-  // set up functions here
 
   render() {
-    // Deconstruct state obj here if needed
-
     const { currentCard } = this.props
-
     const btnTitleArray = ['search',
                            'current weather',
                            '7 hour forecast',
                            '10 day forecast',
                            '24 hour forecast'
                            ]
-
 
     return (
       <ul className='nav-btns' key={Date.now()}>

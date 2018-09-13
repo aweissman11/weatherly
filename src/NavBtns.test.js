@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import Cards from './Cards';
+import NavBtns from './NavBtns';
 import data from './sampleData';
 
 
-describe('Cards', () => {
+describe('NavBtns', () => {
+
+  const setCardFn = jest.fn();
 
   const props = {
     cardStyle: {
@@ -15,21 +17,30 @@ describe('Cards', () => {
     localForecast: data.forecast,
     hourlyForecast: data.hourly_forecast,
     tenDay: data.forecast.simpleforecast,
+    currentCard: 0,
+    position: 0,
+    setCard: setCardFn,
   }
 
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Cards  {...props} />)
+    wrapper = shallow(<NavBtns  {...props} />)
   });
 
   it('should exist', () => {
     expect(wrapper).toBeDefined()
   });
 
-
-  it('should render 4 cards and one h1, no more, no less', () => {
+  it('there should be 5 buttons, no more, no less', () => {
     expect(wrapper.render().children().length).toEqual(5);
   });
+
+  it('should setCard on click', () => {
+    const navBtn = wrapper.find('.current-nav-btn').first();
+    navBtn.simulate('click');
+    expect(wrapper.instance().props.setCard).toHaveBeenCalled()
+    expect(wrapper.instance().props.setCard).toHaveBeenCalledTimes(1)
+  })
 
 });

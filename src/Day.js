@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
 
 export default class Day extends Component {
-	constructor() {
-		super()
-	}
 
 	render() {
 
-		// let thisWeekday = this.props.weekday;
-		// let thisCondition = this.props.condition;
-
-
-		// toLowerCase is breaking the test for some reason. 
-		// Add it back on to the end of the lines above when not testing.
 		let thisWeekday = this.props.weekday.toLowerCase();
 		let thisCondition = this.props.condition.toLowerCase();
 
