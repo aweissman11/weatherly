@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 export default class Day extends Component {
-	constructor() {
-		super()
-	}
 
 	render() {
 		let thisWeekday = this.props.weekday.toLowerCase();

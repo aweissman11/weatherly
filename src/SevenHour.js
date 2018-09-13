@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-// import data from './sampleData';
 import Hour from './Hour';
 
 class SevenHour extends Component {
-  // constructor() {
-  //   super();
-  // }
 
   render() {
     return (
