@@ -23,13 +23,4 @@ class CurrentWeather extends Component {
   }
 }
 
-
-
-
-
-
-
-
-
-
 export default CurrentWeather;

@@ -8,27 +8,27 @@ import data from './sampleData';
 
 describe('App', () => {
 
-  let mockEvent
-  let mockFetchCityWeatherData
-  let mockData
-  let mockFetchCall
-  let renderedComponent
+  // let mockEvent
+  // let mockFetchCityWeatherData
+  // let mockData
+  // let mockFetchCall
+  // let renderedComponent
 
-  beforeEach(() => {
-    mockFetchCall = 'autoip'
-    mockEvent = { preventDefault: jest.fn() }
-    mockFetchCityWeatherData = jest.fn()
-    mockData = data.current_observation
+  // beforeEach(() => {
+  //   mockFetchCall = 'autoip'
+  //   mockEvent = { preventDefault: jest.fn() }
+  //   mockFetchCityWeatherData = jest.fn()
+  //   mockData = data.current_observation
 
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => Promise.resolve({
-        data: mockData,
-      })
-    }))
-    renderedComponent = shallow(<App 
-                                  fetchCityWeatherData={mockFetchCityWeatherData}
-                                />)
-  })
+  //   window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+  //     json: () => Promise.resolve({
+  //       data: mockData,
+  //     })
+  //   }))
+  //   renderedComponent = shallow(<App 
+  //                                 fetchCityWeatherData={mockFetchCityWeatherData}
+  //                               />)
+  // })
 
   let wrapper;
   let setCardFn = jest.fn()

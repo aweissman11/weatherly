@@ -56,7 +56,7 @@ describe('Day', () => {
 
 	it('should say what todays condition is', () => {
 	  const condition = wrapper.find('.day-condition');
-	  expect(condition.text()).toEqual("condition: cloudy");
+	  expect(condition.text()).toEqual("cloudy");
 	})
 
 });

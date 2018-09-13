@@ -24,7 +24,6 @@ export default class WelcomeCard extends Component {
 		this.suggestCities(event.target.value)
 	}
 
-
 	enterHereAsValue() {
 		this.setState({ value: 'autoapi' })
 		this.enterValue('autoapi')
@@ -104,7 +103,6 @@ export default class WelcomeCard extends Component {
 								this.state.autoSuggestion.map( (search, i) => {
 									return (
 										<option
-											onClick={ this.enterValue} 
 											key={i} 
 											value={search}
 											>
@@ -117,7 +115,7 @@ export default class WelcomeCard extends Component {
 						<br />
 						<button 
 							className='submit-btn'
-							onClick={ this.enterValue }>show me.
+							onClick={ () => this.enterValue(this.state.value) }>show me.
 						</button>
 					</form>
 					<section>
