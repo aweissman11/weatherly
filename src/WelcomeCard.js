@@ -5,10 +5,10 @@ import cityList from './largest1000cities';
 export default class WelcomeCard extends Component {
 	constructor() {
 		super();
-
+		
 		this.state = {
-			recentSearches: [],
-			value: ''
+			autoSuggestion: [],
+			value: '',
 		}
 		this.changeValue = this.changeValue.bind(this);
 		this.enterValue = this.enterValue.bind(this);
@@ -19,24 +19,75 @@ export default class WelcomeCard extends Component {
 	}
 
 	changeValue(event) {
-		console.log(event.target.value)
 		event.preventDefault();
 		this.setState( { value: event.target.value } )
 		this.suggestCities(event.target.value)
 	}
 
-	enterValue(event) {
-		event.preventDefault()
-		this.setState( { value: event.target.value } )
-		this.props.parseUserEntry(this.state.value);
+	enterHereAsValue() {
+		this.setState({ value: 'autoapi' })
+		this.enterValue('autoapi')
+	}
+
+	enterValue(location) {
+		let newCityList = this.props.fullCityList.reduce( (newList, city, i) => {
+	 		if (city.location === location) {
+				city.clicks++;
+				city.recency = 10;
+			} else {
+				if (city.recency > 0) {
+					city.recency--;
+				}
+			}
+			return this.props.fullCityList
+		}, this.props.fullCityList)
+
+		localStorage.setItem('fullCityList', JSON.stringify(newCityList))
+		this.setState( { value: location } )
+		this.parseUserEntryHere(location)
+	}
+
+	parseUserEntryHere(entry) {
+		this.props.parseUserEntry(entry);
 	}
 
 	suggestCities(event) {
-		this.setState({recentSearches: this.props.newTrie.suggest(event)})
+		let autoSuggestion = this.props.newTrie.suggest(event)
+		let cityObjs = this.props.fullCityList.filter( city => {
+			if (autoSuggestion.includes(city.location)) {
+				return city;
+			}
+		})
+
+		let sortedSuggestionObjs = this.sortByKey(cityObjs, ('clicks'), 'recency')
+
+		let finalArr = sortedSuggestionObjs.map( suggestion => {
+			return suggestion.location;
+		}).slice(0, 10)
+
+		this.setState({autoSuggestion: finalArr})
+	}
+
+	sortByKey(array, key, otherKey) {
+	    return array.sort(function(a, b) {
+	        var x = a[key] + a[otherKey]; var y = b[key] + b[otherKey];
+	        return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+	    });
 	}
 
 	render() {
 		const firstTenCities = cityList.cityList.slice(0, 10)
+
+		if (this.props.fullCityList) {
+
+			// console.log(this.props.fullCityList);
+			// topSearches = 
+			// console.log( topSearches)
+		}
+
+
+
+		// console.log(this.state.autoSuggestion);
 
 		return (
 			<div className='welcome'>
@@ -46,6 +97,7 @@ export default class WelcomeCard extends Component {
 				{
 					localStorage.length >= 1 && <h1 className='welcome-msg2'>i know why you're here. you're looking for the weather.</h1>
 				}
+
 				<section className='user-tools'>
 					<h2 className='welcome-title'>i know weather</h2>
 					<form className='search-form' onSubmit={ this.handleSubmit }>
@@ -58,7 +110,7 @@ export default class WelcomeCard extends Component {
 						/>
 						<datalist id='searches'>
 							{
-								this.state.recentSearches.map( (search, i) => {
+								this.state.autoSuggestion.map( (search, i) => {
 									return (
 										<option
 											onClick={ this.enterValue} 
@@ -78,7 +130,7 @@ export default class WelcomeCard extends Component {
 						</button>
 					</form>
 					<section>
-						<button className='your-location-btn'>see your weather</button>
+						<button className='your-location-btn' onClick={ () => this.enterHereAsValue() }>see your weather</button>
 						<label 
 							for="recents"
 							className='recents-label'
