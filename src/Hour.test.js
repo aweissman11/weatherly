@@ -24,7 +24,6 @@ describe('Hour', () => {
   });
 
 	// it('should toggle the Hour\'s state of showInfo', () => {
-	// 	wrapper.instance().toggleInfo();
 	// 	expect(wrapper.state()).toEqual({showInfo: true})
 	// })
 
@@ -51,29 +50,25 @@ describe('Hour', () => {
 	})
 
 	it('should render the Hour\'s condition', () => {
-		wrapper.instance().toggleInfo();
 		expect(wrapper.find('.hour-condition').length).toEqual(1);
 	});
 
 	it('should say what the condition is', () => {
 		wrapper.setState( {showInfo: true })
 	  const condition = wrapper.find('.hour-condition');
-	  expect(condition.text()).toEqual("condition: cloudy");
+	  expect(condition.text()).toEqual("cloudy");
 	})
 
 	it('should render the Hour\'s humidity', () => {
-		wrapper.instance().toggleInfo();
 		expect(wrapper.find('.humidity').length).toEqual(1);
 	});
 
 	it('should say what time it is', () => {
-		wrapper.instance().toggleInfo();
 	  const time = wrapper.find('.humidity');
-	  expect(time.text()).toEqual("humidity: -9999");
+	  expect(time.text()).toEqual("humidity: -9999%");
 	})
 
 	it('should render the Hour\'s feels like temperature', () => {
-		wrapper.instance().toggleInfo();		
 		expect(wrapper.find('.feelslike').length).toEqual(1);
 	});
 

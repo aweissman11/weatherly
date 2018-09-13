@@ -25,7 +25,7 @@ describe('SevenHour', () => {
   });
 
   it('should render 7 hours, no more, no less', () => {
-    expect(wrapper.render().children().length).toEqual(8);
+    expect(wrapper.render().children().children().length).toEqual(7);
   });
 
 })
