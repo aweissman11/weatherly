@@ -78,9 +78,8 @@ export default class WelcomeCard extends Component {
 						</button>
 					</form>
 					<section>
-						<button className='your-location-btn'>see your weather</button>
 						<label 
-							for="recents"
+							htmlFor="recents"
 							className='recents-label'
 						>recent places:</label>
 						<select 
@@ -95,6 +94,7 @@ export default class WelcomeCard extends Component {
 								})
 							}
 						</select>
+						<button className='your-location-btn'>see your weather</button>
 					</section>
 				</section>
 			</div>
