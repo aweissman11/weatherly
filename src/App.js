@@ -126,7 +126,7 @@ class App extends Component {
         hourlyForecast: data.hourly_forecast,
         tenDay: data.forecast.simpleforecast,
       })
-      })
+    })
     .catch( error => {
       console.log(error)
     })
