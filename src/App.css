@@ -76,9 +76,14 @@ h2 {
 }
 
 .current-div {
+  background-color: rgba(81,84,82, .8);
+  border-radius: 15px;
   display: block;
-  margin-right: 40%;
-  margin-top: 3em;
+  font-size: 20px;
+  margin: auto;
+  margin-top: 5%;
+  padding: 2em;
+  width: 60%;
 }
 
 .current-header {
@@ -86,7 +91,7 @@ h2 {
 }
 
 .current-location {
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .current-nav-btn {
