@@ -45,6 +45,7 @@ export default class WelcomeCard extends Component {
 		localStorage.setItem('fullCityList', JSON.stringify(newCityList))
 		this.setState( { value: location } )
 		this.parseUserEntryHere(location)
+		localStorage.setItem('hasVisited', 'visited')
 	}
 
 	parseUserEntryHere(entry) {
@@ -78,24 +79,13 @@ export default class WelcomeCard extends Component {
 	render() {
 		const firstTenCities = cityList.cityList.slice(0, 10)
 
-		if (this.props.fullCityList) {
-
-			// console.log(this.props.fullCityList);
-			// topSearches = 
-			// console.log( topSearches)
-		}
-
-
-
-		// console.log(this.state.autoSuggestion);
-
 		return (
 			<div className='welcome'>
 				{
-					localStorage.length === 0 && <h1 className='welcome-msg'>welcome, to the weather.</h1>
+					!localStorage.getItem('hasVisited') && <h1 className='welcome-msg'>welcome, to the weather.</h1>
 				}
 				{
-					localStorage.length >= 1 && <h1 className='welcome-msg2'>i know why you're here. you're looking for the weather.</h1>
+					localStorage.getItem('hasVisited') && <h1 className='welcome-msg2'>i know why you're here. you're looking for the weather.</h1>
 				}
 
 				<section className='user-tools'>

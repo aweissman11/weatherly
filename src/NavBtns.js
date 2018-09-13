@@ -22,7 +22,7 @@ export default class NavBtns extends Component {
                   className='current-nav-btn'
                   onClick={ () => this.props.setCard(i, (i * -100)) }  
                 >
-                    {btn}
+                  {btn}
                 </li>
               )
             } else {
@@ -32,7 +32,7 @@ export default class NavBtns extends Component {
                   className='nav-btn'
                   onClick={ () => this.props.setCard(i, (i * -100)) }  
                 >
-                    {btn}
+                  {btn}
                 </li>
               )
             }
