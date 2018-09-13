@@ -39,13 +39,3 @@ class Hour extends Component {
 }
 
 export default Hour;
-
-//                       period={hour.FCTTIME.civil}
-//                       currentTemp={hour.temp.english}
-//                       image={hour.icon}
-//                     />
-
-
-// {props.propsData.FCTTIME.civil}
-//          <span>{props.propsData.hour.temp.english}</span>
-//          <span>{props.propsData.icon}</span>
