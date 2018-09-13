@@ -13,7 +13,7 @@ body {
   /*font-size: 2em;*/
   background-image: url(https://thumbs.gfycat.com/CalmSimilarCob-size_restricted.gif) ;
   background-size: cover;
-  /*filter: brightness(80%);*/
+  background-filter: brightness(80%);
   width: 90%;
   align-self: center;
   text-align: center;
@@ -115,6 +115,15 @@ h2 {
   text-align: center;
 }
 
+.day-div {
+  background-color: rgba(81,84,82, .8);
+  border-radius: 15px;
+  display: inline-block;
+  font-size: 22px;
+  padding: 2%;
+  margin: 2%;
+}
+
 .hour-div {
   background-color: rgba(81,84,82, .8);
   border-radius: 15px;
@@ -142,16 +151,18 @@ h2 {
     list-style: none;
 }
 
-.seven-hour {
+.seven-hour,
+.ten-day-forecast {
   grid-template-rows: 1fr 5fr;
 }
 
-.seven-hour-block {
+.seven-hour-block,
+.ten-days-block {
   grid-row: 2 / 3;
 }
 
 .seven-hour,
-.ten-days {
+.ten-day-forecast {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 20px;
@@ -191,10 +202,18 @@ h2 {
   width: 40%;
 }
 
-.ten-day-header,
-.twentyfour-hour-header {
-  font-size: 1.3em;
-  padding: 15px 0;
+.ten-days-block {
+
+}
+
+.ten-day-header {
+
+}
+
+.ten-day-forecast,
+.twentyfour-hours {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 
 .twentyfour-hour img {
@@ -204,11 +223,6 @@ h2 {
 .twentyfour-hour p,
 .ten-day-forecast p {
   font-size: .7em;
-}
-
-.twentyfour-hours {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 
 .user-input {

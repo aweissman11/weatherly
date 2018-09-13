@@ -5,17 +5,13 @@ import Day from './Day'
 export default class TenDay extends Component {
 	constructor() {
 		super();
-
-		this.state = {
-
-		}
 	}
 
   render() {
     return (
       <div className='ten-day-forecast'>
         <h1 className='ten-day-header'>ten day forecast</h1>
-        <section className='ten-days'>
+        <section className='ten-days-block'>
   				{
   					this.props.tenDay.forecastday.map( (day, index) => {
   						return <Day
@@ -32,7 +28,6 @@ export default class TenDay extends Component {
   				}        
         </section>
       </div>
-      
     )
   }
 }
