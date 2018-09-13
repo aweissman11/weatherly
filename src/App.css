@@ -12,7 +12,6 @@
 body {
   background-image: url(https://thumbs.gfycat.com/CalmSimilarCob-size_restricted.gif) ;
   background-size: cover;
-  background-filter: brightness(80%);
   width: 90%;
   align-self: center;
   text-align: center;
@@ -151,6 +150,15 @@ h2 {
     margin-top: 5px;
 }
 
+.recents-label {
+  background-color: rgba(81,84,82, .8);
+}
+
+.search-form {
+  grid-column: 1 / 2;
+  display: inline-block;
+}
+
 .seven-hour,
 .ten-day-forecast,
 .twenty-four-hour {
@@ -200,8 +208,8 @@ h2 {
   border-width: 0px;
   color: #fff;
   font-size: 17px;
-  height: 3em;
-  width: 40%;
+  height: 3.3em;
+  width: 90%;
 }
 
 .ten-day-forecast,
@@ -227,14 +235,25 @@ h2 {
   border-radius: 5px;
   border-style: none;
   border-width: 0px;
+  color: gray;
   font-size: 14px;
   height: 4em;
+  margin: 2em 0 1.5em;
   text-align: center;
-  width: 40%;
+  width: 90%;
+}
+
+.user-tools {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr)
 }
 
 .welcome-msg {
   padding: .8em 0 2.5em;
+}
+
+.welcome-msg2 {
+  padding: .8em 0;
 }
 
 .welcome-recents {
@@ -245,11 +264,14 @@ h2 {
   color: gray;
   font-size: 14px;
   height: 4em;
-  text-align: center;
-  width: 40%;
+  width: 90%;
 }
 
 .welcome-title {
-  
+  margin-bottom: 5%;
+}
+
+.your-location-btn {
+  margin-bottom: 2.5em;
 }
 

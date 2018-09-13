@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 
 class Hour extends Component {
-  constructor() {
-    super();
-
-    }
 
   render() {
     return (
