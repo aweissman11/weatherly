@@ -41,13 +41,13 @@ export default class WelcomeCard extends Component {
 		return (
 			<div className='welcome'>
 				{
-					localStorage.length === 1 && <h1 className='welcome-msg'>welcome, to the weather.</h1>
+					localStorage.length === 0 && <h1 className='welcome-msg'>welcome, to the weather.</h1>
 				}
 				{
-					localStorage.length >= 2 && <h1 className='welcome-msg2'>i know why you're here. you're looking for the weather.</h1>
+					localStorage.length >= 1 && <h1 className='welcome-msg2'>i know why you're here. you're looking for the weather.</h1>
 				}
-				<h2 className='welcome-title'>i know weather</h2>
 				<section className='user-tools'>
+					<h2 className='welcome-title'>i know weather</h2>
 					<form className='search-form' onSubmit={ this.handleSubmit }>
 						<input 
 							className='user-input'
