@@ -11,21 +11,21 @@ class SevenHour extends Component {
     return (
       <div className='seven-hour'>
         <h1 className='seven-hour-header'>seven hour forecast</h1>
-
-        {
-          this.props.hourlyForecast.map( (hour, index) => {
-            return <Hour 
-              hour={hour.FCTTIME.hour}
-              currentTemp={hour.temp.english}
-              image={hour.icon_url}
-              condition={hour.condition}
-              humidity={hour.humidity}
-              windchill={hour.windchill.english}
-              feelslike={hour.feelslike.english}
-              key={index}
-             />
-          }).slice(0, 7)
-        }
+        <section className='seven-hour-block'>
+          {
+            this.props.hourlyForecast.map( (hour, index) => {
+              return <Hour 
+                hour={hour.FCTTIME.hour}
+                currentTemp={hour.temp.english}
+                image={hour.icon_url}
+                condition={hour.condition}
+                humidity={hour.humidity}
+                feelslike={hour.feelslike.english}
+                key={index}
+               />
+            }).slice(0, 7)
+          }
+        </section>
       </div>
     );
   }
