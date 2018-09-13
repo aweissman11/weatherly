@@ -1,12 +1,6 @@
-/* current weather */
-
 import React, { Component } from 'react';
 
-
 class CurrentWeather extends Component {
-  // constructor() {
-  //   super();
-  // }
 
   render() {
     return (

@@ -6,7 +6,6 @@ import TenDay from './TenDay';
 import WelcomeCard from './WelcomeCard';
 import TwentyFourHour from './24Hour';
 
-
 export default class Cards extends Component {
   render() {
     const cardsArray = [  <WelcomeCard 
