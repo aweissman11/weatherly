@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 export default class NavBtns extends Component {
 
   render() {
-    const { currentCard } = this.props
+    const { currentCard } = this.props;
     const btnTitleArray = ['search',
                            'current weather',
                            '7 hour forecast',
                            '10 day forecast',
                            '24 hour forecast'
-                           ]
+                           ];
 
     return (
       <ul className='nav-btns' key={Date.now()}>
@@ -24,7 +24,7 @@ export default class NavBtns extends Component {
                 >
                   {btn}
                 </li>
-              )
+              );
             } else {
               return (
                 <li 
@@ -34,12 +34,12 @@ export default class NavBtns extends Component {
                 >
                   {btn}
                 </li>
-              )
+              );
             }
           })
         }
       </ul>
-    )
+    );
   }
 }
 

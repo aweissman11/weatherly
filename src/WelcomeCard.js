@@ -9,7 +9,7 @@ export default class WelcomeCard extends Component {
 		this.state = {
 			autoSuggestion: [],
 			value: '',
-		}
+		};
 		this.changeValue = this.changeValue.bind(this);
 		this.enterValue = this.enterValue.bind(this);
 	}
@@ -20,13 +20,13 @@ export default class WelcomeCard extends Component {
 
 	changeValue(event) {
 		event.preventDefault();
-		this.setState( { value: event.target.value } )
-		this.suggestCities(event.target.value)
+		this.setState( { value: event.target.value } );
+		this.suggestCities(event.target.value);
 	}
 
 	enterHereAsValue() {
-		this.setState({ value: 'autoapi' })
-		this.enterValue('autoapi')
+		this.setState({ value: 'autoapi' });
+		this.enterValue('autoapi');
 	}
 
 	enterValue(location) {
@@ -39,13 +39,13 @@ export default class WelcomeCard extends Component {
 					city.recency--;
 				}
 			}
-			return this.props.fullCityList
-		}, this.props.fullCityList)
+			return this.props.fullCityList;
+		}, this.props.fullCityList);
 
-		localStorage.setItem('fullCityList', JSON.stringify(newCityList))
-		this.setState( { value: location } )
-		this.parseUserEntryHere(location)
-		localStorage.setItem('hasVisited', 'visited')
+		localStorage.setItem('fullCityList', JSON.stringify(newCityList));
+		this.setState( { value: location } );
+		this.parseUserEntryHere(location);
+		localStorage.setItem('hasVisited', 'visited');
 	}
 
 	parseUserEntryHere(entry) {
@@ -53,31 +53,33 @@ export default class WelcomeCard extends Component {
 	}
 
 	suggestCities(event) {
-		let autoSuggestion = this.props.newTrie.suggest(event)
+		let autoSuggestion = this.props.newTrie.suggest(event);
 		let cityObjs = this.props.fullCityList.filter( city => {
 			if (autoSuggestion.includes(city.location)) {
 				return city;
 			}
-		})
+		});
 
-		let sortedSuggestionObjs = this.sortByKey(cityObjs, ('clicks'), 'recency')
+		let sortedSuggestionObjs = this.sortByKey(cityObjs, ('clicks'), 'recency');
 
 		let finalArr = sortedSuggestionObjs.map( suggestion => {
 			return suggestion.location;
-		}).slice(0, 10)
+		}).slice(0, 10);
 
-		this.setState({autoSuggestion: finalArr})
+		this.setState({autoSuggestion: finalArr});
 	}
 
 	sortByKey(array, key, otherKey) {
 	    return array.sort(function(a, b) {
-	        var x = a[key] + a[otherKey]; var y = b[key] + b[otherKey];
+	        var x = a[key] + a[otherKey]; 
+	        var y = b[key] + b[otherKey];
+
 	        return ((x > y) ? -1 : ((x < y) ? 1 : 0));
 	    });
 	}
 
 	render() {
-		const firstTenCities = cityList.cityList.slice(0, 10)
+		const firstTenCities = cityList.cityList.slice(0, 10);
 
 		return (
 			<div className='welcome'>
@@ -108,7 +110,7 @@ export default class WelcomeCard extends Component {
 											>
 												{search}
 										</option> 
-									)
+									);
 								}).slice(0, 10)		
 							}
 						</datalist>
@@ -131,7 +133,7 @@ export default class WelcomeCard extends Component {
 								firstTenCities.map( (city, i) => {
 									return (
 										<option value={city} key={i} >{city}</option>
-									)
+									);
 								})
 							}
 						</select>

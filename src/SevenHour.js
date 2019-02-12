@@ -18,7 +18,7 @@ class SevenHour extends Component {
                 humidity={hour.humidity}
                 feelslike={hour.feelslike.english}
                 key={index}
-               />
+               />;
             }).slice(0, 7)
           }
         </section>

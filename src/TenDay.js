@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Day from './Day'
+import Day from './Day';
 
 export default class TenDay extends Component {
 
@@ -20,11 +20,11 @@ export default class TenDay extends Component {
   							condition={day.conditions}
   							image={day.icon_url}
   							key={index}
-  							/>
+  							/>;
   					})
   				}        
         </section>
       </div>
-    )
+    );
   }
 }

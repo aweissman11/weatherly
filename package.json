@@ -1,5 +1,6 @@
 {
   "name": "weatherly",
+  "homepage": "https://ashtonkbailey.github.io/weatherly/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,13 +14,16 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "eslint": "./node_modules/eslint/bin/eslint.js ./src/*.js"
+    "eslint": "./node_modules/eslint/bin/eslint.js ./src/*.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.5.0",
     "eslint-plugin-react": "^7.11.1",
+    "gh-pages": "^2.0.1",
     "react-test-renderer": "^16.5.0"
   }
 }

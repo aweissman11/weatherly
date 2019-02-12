@@ -12,7 +12,7 @@ class Hour extends Component {
         <p className='humidity'>humidity: <span>{this.props.humidity}&#37;</span></p>
         <p className='feelslike'>feels like: <span>{this.props.feelslike}</span>&deg;f</p>
       </div>
-    )
+    );
   }
 }
 
